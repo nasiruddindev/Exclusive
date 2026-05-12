@@ -1,6 +1,7 @@
 import React from 'react'
 import Offer from './layouts/Offer'
 import Navber from './layouts/Navber'
+import Footer from './layouts/Footer'
 
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
     <div>
       <Offer/>
       <Navber/>
+      <Footer/>
 
     </div>
   )
