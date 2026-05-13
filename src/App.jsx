@@ -1,16 +1,37 @@
-import React from 'react'
-import Offer from './layouts/Offer'
-import Navber from './layouts/Navber'
-import Footer from './layouts/Footer'
+import {
+  createRoutesFromElements,
+  createBrowserRouter,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import SignUp from "./pages/SignUp";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+
+    <Route path="/" element={<Home />}></Route>
+
+    <Route path="/about" element={<About />}></Route>
+
+    <Route path="/contact" element={<Contact />}></Route>
+
+    <Route path="/signup" element={<SignUp />}></Route>
+
+
+    </Route>
+  )
+);
+
 
 
 const App = () => {
   return (
     <div>
-      <Offer/>
-      <Navber/>
-      <Footer/>
-
+      <RouterProvider router={router} />
     </div>
   )
 }
