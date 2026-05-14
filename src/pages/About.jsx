@@ -6,7 +6,6 @@ import Container from '../components/Container'
 import Flex from '../components/Flex'
 import { Link } from 'react-router-dom'
 import ListItem from '../components/ListItem'
-import Title from '../components/Title'
 import Image from '../components/Image'
 import AboutBanner from '../assets/aboutbanner.png'
 import Grid from '../components/Grid'
@@ -43,7 +42,7 @@ const About = () => {
 
           <Flex className="mt-10 mb-35 items-center">
             <div className="w-6/12 pr-5">
-              <Title text="Our Story" className="pb-10" />
+              <h2 className='font-inter font-semibold text-black text-[54px] pb-10'>Our Story</h2>
               <p className="text-base font-pop font-normal text-black pb-6">
                 Launced in 2015, Exclusive is South Asia’s premier online
                 shopping makterplace with an active presense in Bangladesh.
