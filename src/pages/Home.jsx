@@ -6,7 +6,7 @@ import Container from '../components/Container'
 import Flex from '../components/Flex'
 import Image from '../components/Image'
 import BannerImg from '../assets/banner.jpg'
-import CategoryList from '../components/CategoryList'
+import BannerList from '../components/BannerList'
 import SubTitle from '../components/SubTitle'
 import Title from '../components/Title'
 import { FaArrowRight } from 'react-icons/fa'
@@ -18,6 +18,17 @@ import Card2 from '../assets/card2.png'
 import Card3 from '../assets/card3.png'
 import Card4 from '../assets/card4.png'
 import Button from '../components/Button'
+import CategoryList from '../components/CategoryList'
+import { HiOutlineDevicePhoneMobile } from 'react-icons/hi2'
+import { HiOutlineDesktopComputer } from 'react-icons/hi'
+import { BsSmartwatch } from 'react-icons/bs'
+import { IoCameraOutline } from 'react-icons/io5'
+import { FiHeadphones } from 'react-icons/fi'
+import { LuGamepad2 } from 'react-icons/lu'
+import BestCard1 from '../assets/bestcard1.png'
+import BestCard2 from '../assets/bestcard2.png'
+import BestCard3 from '../assets/bestcard3.png'
+import BestCard4 from '../assets/bestcard4.png'
 
 const Home = () => {
   return (
@@ -31,23 +42,23 @@ const Home = () => {
           <Flex className="mb-35">
             <div className="w-3/12">
               <ul className="flex flex-col gap-y-4 border-r border-black/50 mr-13 pt-10 pr-4">
-                <CategoryList text="Woman’s Fashion" type={true} />
+                <BannerList text="Woman’s Fashion" type={true} />
 
-                <CategoryList text="Men’s Fashion" type={true} />
+                <BannerList text="Men’s Fashion" type={true} />
 
-                <CategoryList text="Electronics" />
+                <BannerList text="Electronics" />
 
-                <CategoryList text="Home & Lifestyle" />
+                <BannerList text="Home & Lifestyle" />
 
-                <CategoryList text="Medicine" />
+                <BannerList text="Medicine" />
 
-                <CategoryList text="Sports & Outdoor" />
+                <BannerList text="Sports & Outdoor" />
 
-                <CategoryList text="Baby & Toys" />
+                <BannerList text="Baby & Toys" />
 
-                <CategoryList text="Groceries & Pets" />
+                <BannerList text="Groceries & Pets" />
 
-                <CategoryList text="Health & Beauty" />
+                <BannerList text="Health & Beauty" />
               </ul>
             </div>
 
@@ -57,7 +68,7 @@ const Home = () => {
           </Flex>
           {/* Banner part end */}
 
-          {/* First Card Section start */}
+          {/* Flash Section start */}
 
           <SubTitle text="Today's" />
           <Flex className="pt-6 pb-8 justify-between items-center">
@@ -113,11 +124,81 @@ const Home = () => {
             />
           </Grid>
 
-          <div className="my-15 text-center">
+          <div className="py-15 text-center border-b border-black/30">
             <Button text="View All Products" />
           </div>
 
-          {/* First Card Section End */}
+          {/* Flash Section End */}
+
+
+          {/* CategoryList Section start */}
+
+          <SubTitle text="Categories" className="pt-20"/>
+          <Flex className="pt-5 pb-15 justify-between items-center">
+            <div>
+              <Title text="Browse By Category" />
+            </div>
+
+            <div className="flex gap-x-2 items-center">
+              <div className="bg-input p-2 rounded-full">
+                <IoMdArrowBack className="text-2xl" />
+              </div>
+              <div className="bg-input p-2 rounded-full">
+                <IoMdArrowForward className="text-2xl" />
+              </div>
+            </div>
+          </Flex>
+
+          <Grid className="grid-cols-6 gap-x-7.5 pb-18 border-b border-black/30">
+            <CategoryList text="Phones" icon={<HiOutlineDevicePhoneMobile className='text-[56px] group-hover:text-white'/>}/>
+
+
+            <CategoryList text="Computers" icon={<HiOutlineDesktopComputer className='text-[56px] group-hover:text-white'/>}/>
+
+
+            <CategoryList text="SmartWatch" icon={<BsSmartwatch className='text-[56px] group-hover:text-white'/>}/>
+
+
+            <CategoryList text="Camera" icon={<IoCameraOutline  className='text-[56px] group-hover:text-white'/>}/>
+
+
+            <CategoryList text="HeadPhones" icon={<FiHeadphones className='text-[56px] group-hover:text-white'/>}/>
+
+
+            <CategoryList text="Gaming" icon={<LuGamepad2 className='text-[56px] group-hover:text-white'/>}/>
+          </Grid>
+          {/* CategoryList Section end */}
+
+
+          {/* Best Section Start */}
+
+          <SubTitle text="This Month" className="pt-17"/>
+          <Flex className="pt-5 pb-15 justify-between items-center">
+            <div>
+              <Title text="Browse By Category" />
+            </div>
+
+            <div>
+              <Button text="View All"/>
+            </div>
+          </Flex>
+
+          <Grid className="grid-cols-4">
+
+            <Card image={BestCard1} title="The north coat" salePrice="$260" regularPrice="$360" review="(65)" discountClassName="hidden"/>
+
+
+            <Card image={BestCard2} title="Gucci duffle bag" salePrice="$960" regularPrice="$1160" review="(65)" discountClassName="hidden"/>
+
+
+            <Card image={BestCard3} title="RGB liquid CPU Cooler" salePrice="$160" regularPrice="$170"  review="(65)" discountClassName="hidden"/>
+
+
+            <Card image={BestCard4} title="Small BookSelf" salePrice="$360" review="(65)" discountClassName="hidden"/>
+
+          </Grid>
+
+          {/* Best Section end */}
         </Container>
       </section>
 

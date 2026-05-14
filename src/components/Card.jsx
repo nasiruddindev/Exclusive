@@ -3,13 +3,13 @@ import Image from './Image'
 import { FaRegHeart, FaStar } from 'react-icons/fa'
 import { LuEye } from 'react-icons/lu'
 
-const Card = ({image,title,salePrice,regularPrice,discount,review}) => {
+const Card = ({image,title,salePrice,regularPrice,discount,review,discountClassName}) => {
   return (
     <div className='max-w-67.5 cursor-pointer'>
       <div className='relative group overflow-hidden w-full h-62.5 bg-input flex justify-center items-center'>
         <Image src={image}/>
 
-        <div className='absolute top-3 left-3 bg-secondary px-3 py-1 rounded '><p className='text-primary'> {discount}</p></div>
+        <div className={`absolute top-3 left-3 bg-secondary px-3 py-1 rounded ${discountClassName}`}><p className='text-primary'> {discount}</p></div>
 
 
         <div className='absolute top-3 right-3 bg-white p-2 rounded-full'><FaRegHeart className='text-2xl'/></div>
@@ -28,7 +28,7 @@ const Card = ({image,title,salePrice,regularPrice,discount,review}) => {
 
 
       <h4 className='font-pop font-medium text-base text-black pt-4 pb-2'>{title}</h4>
-      <p className='font-pop font-medium text-base text-secondary'>{salePrice} <span className='text-black/50 pl-3'>{regularPrice}</span></p>
+      <p className='font-pop font-medium text-base text-secondary'>{salePrice} <span className='text-black/50 pl-3'><del>{regularPrice}</del></span></p>
 
       <ul className='flex pt-2'>
         <li><FaStar className='text-star'/></li>

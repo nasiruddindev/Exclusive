@@ -1,13 +1,15 @@
 import React from 'react'
-import { IoIosArrowForward } from 'react-icons/io'
 
-const CategoryList = ({text,type}) => {
+
+const CategoryList = ({text,icon}) => {
   return (
-    <div className='flex justify-between items-center cursor-pointer'>
-      <li className='font-pop font-normal text-black text-base'>{text}</li>
-      {
-        type && <IoIosArrowForward />
-      }
+    <div className='max-w-42.5 h-36.25 border border-black/30 flex flex-col justify-center items-center rounded group hover:bg-secondary hover:border-transparent duration-300 cursor-pointer'>
+
+      <div className=''>{icon}</div>
+
+
+
+      <p className='text-base text-black font-pop font-normal pt-4 group-hover:text-white'>{text}</p>
     </div>
   )
 }
