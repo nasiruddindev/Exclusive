@@ -29,6 +29,10 @@ import BestCard1 from '../assets/bestcard1.png'
 import BestCard2 from '../assets/bestcard2.png'
 import BestCard3 from '../assets/bestcard3.png'
 import BestCard4 from '../assets/bestcard4.png'
+import ExploreCard1 from '../assets/explorecard1.png'
+import ExploreCard2 from '../assets/explorecard2.png'
+import ExploreCard3 from '../assets/explorecard3.png'
+import ExploreCard4 from '../assets/explorecard4.png'
 
 const Home = () => {
   return (
@@ -198,7 +202,69 @@ const Home = () => {
 
           </Grid>
 
+          <div className='pb-17 pt-35'>
+            <div className=' bg-[url(assets/box.png)] bg-cover bg-center bg-no-repeat'>
+
+            <div className='pb-16 pt-95 pl-15'>
+              <Button text="Buy Now" className=""/>
+            </div>
+          </div>
+          </div>
+
           {/* Best Section end */}
+
+
+          {/* Explore Section start */}
+
+          <SubTitle text="Our Products" className="pt-20"/>
+          <Flex className="pt-5 pb-15 justify-between items-center">
+            <div>
+              <Title text="Explore Our Products" />
+            </div>
+
+            <div className="flex gap-x-2 items-center">
+              <div className="bg-input p-2 rounded-full">
+                <IoMdArrowBack className="text-2xl" />
+              </div>
+              <div className="bg-input p-2 rounded-full">
+                <IoMdArrowForward className="text-2xl" />
+              </div>
+            </div>
+          </Flex>
+
+
+          <Grid className="grid-cols-4 gap-7.5">
+
+            <Card image={ExploreCard1} title="Breed Dry Dog Food" salePrice="$100"  review="(35)" discountClassName="hidden"/>
+
+
+            <Card image={ExploreCard2} title="CANON EOS DSLR Camera" salePrice="$360"  review="(95)" discountClassName="hidden"/>
+
+
+            <Card image={ExploreCard3} title="ASUS FHD Gaming Laptop" salePrice="$700"  review="(325)" discountClassName="hidden"/>
+
+
+            <Card image={ExploreCard4} title="Curology Product Set " salePrice="$500"  review="(145)" discountClassName="hidden"/>
+
+            <Card image={ExploreCard1} title="Breed Dry Dog Food" salePrice="$100"  review="(35)" discountClassName="hidden"/>
+
+            <Card image={ExploreCard2} title="CANON EOS DSLR Camera" salePrice="$360"  review="(95)" discountClassName="hidden"/>
+
+            <Card image={ExploreCard3} title="ASUS FHD Gaming Laptop" salePrice="$700"  review="(325)" discountClassName="hidden"/>
+
+            <Card image={ExploreCard4} title="Curology Product Set " salePrice="$500"  review="(145)" discountClassName="hidden"/>
+          </Grid>
+
+          <div className='text-center mt-15 mb-42'>
+            <Button text="view All Products"/>
+          </div>
+          {/* Explore Section end */}
+
+
+          {/* New Arrival Section end */}
+
+
+          {/* New Arrival Section end */}
         </Container>
       </section>
 
