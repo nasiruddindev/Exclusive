@@ -14,7 +14,7 @@ import { FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 
 const footer = () => {
   return (
-    <section className="bg-black mt-10 pt-20 pb-15">
+    <section className="bg-black pt-20 pb-15">
       <Container>
         <Flex className="gap-x-10">
           <div className="w-3/12">

@@ -24,7 +24,7 @@ import { HiOutlineDesktopComputer } from 'react-icons/hi'
 import { BsSmartwatch } from 'react-icons/bs'
 import { IoCameraOutline } from 'react-icons/io5'
 import { FiHeadphones } from 'react-icons/fi'
-import { LuGamepad2 } from 'react-icons/lu'
+import { LuGamepad2, LuHeadset } from 'react-icons/lu'
 import BestCard1 from '../assets/bestcard1.png'
 import BestCard2 from '../assets/bestcard2.png'
 import BestCard3 from '../assets/bestcard3.png'
@@ -33,6 +33,13 @@ import ExploreCard1 from '../assets/explorecard1.png'
 import ExploreCard2 from '../assets/explorecard2.png'
 import ExploreCard3 from '../assets/explorecard3.png'
 import ExploreCard4 from '../assets/explorecard4.png'
+import ArrivalCard1 from '../assets/arrivalcard1.png'
+import ArrivalCard2 from '../assets/arrivalcard2.png'
+import ArrivalCard3 from '../assets/arrivalcard3.png'
+import ArrivalCard4 from '../assets/arrivalcard4.png'
+import { TbTruckDelivery } from 'react-icons/tb'
+import { CiBookmarkCheck } from 'react-icons/ci'
+import CustomerService from '../components/CustomerService'
 
 const Home = () => {
   return (
@@ -134,10 +141,9 @@ const Home = () => {
 
           {/* Flash Section End */}
 
-
           {/* CategoryList Section start */}
 
-          <SubTitle text="Categories" className="pt-20"/>
+          <SubTitle text="Categories" className="pt-20" />
           <Flex className="pt-5 pb-15 justify-between items-center">
             <div>
               <Title text="Browse By Category" />
@@ -154,69 +160,113 @@ const Home = () => {
           </Flex>
 
           <Grid className="grid-cols-6 gap-x-7.5 pb-18 border-b border-black/30">
-            <CategoryList text="Phones" icon={<HiOutlineDevicePhoneMobile className='text-[56px] group-hover:text-white'/>}/>
+            <CategoryList
+              text="Phones"
+              icon={
+                <HiOutlineDevicePhoneMobile className="text-[56px] group-hover:text-white" />
+              }
+            />
 
+            <CategoryList
+              text="Computers"
+              icon={
+                <HiOutlineDesktopComputer className="text-[56px] group-hover:text-white" />
+              }
+            />
 
-            <CategoryList text="Computers" icon={<HiOutlineDesktopComputer className='text-[56px] group-hover:text-white'/>}/>
+            <CategoryList
+              text="SmartWatch"
+              icon={
+                <BsSmartwatch className="text-[56px] group-hover:text-white" />
+              }
+            />
 
+            <CategoryList
+              text="Camera"
+              icon={
+                <IoCameraOutline className="text-[56px] group-hover:text-white" />
+              }
+            />
 
-            <CategoryList text="SmartWatch" icon={<BsSmartwatch className='text-[56px] group-hover:text-white'/>}/>
+            <CategoryList
+              text="HeadPhones"
+              icon={
+                <FiHeadphones className="text-[56px] group-hover:text-white" />
+              }
+            />
 
-
-            <CategoryList text="Camera" icon={<IoCameraOutline  className='text-[56px] group-hover:text-white'/>}/>
-
-
-            <CategoryList text="HeadPhones" icon={<FiHeadphones className='text-[56px] group-hover:text-white'/>}/>
-
-
-            <CategoryList text="Gaming" icon={<LuGamepad2 className='text-[56px] group-hover:text-white'/>}/>
+            <CategoryList
+              text="Gaming"
+              icon={
+                <LuGamepad2 className="text-[56px] group-hover:text-white" />
+              }
+            />
           </Grid>
           {/* CategoryList Section end */}
 
-
           {/* Best Section Start */}
 
-          <SubTitle text="This Month" className="pt-17"/>
+          <SubTitle text="This Month" className="pt-17" />
           <Flex className="pt-5 pb-15 justify-between items-center">
             <div>
               <Title text="Browse By Category" />
             </div>
 
             <div>
-              <Button text="View All"/>
+              <Button text="View All" />
             </div>
           </Flex>
 
           <Grid className="grid-cols-4">
+            <Card
+              image={BestCard1}
+              title="The north coat"
+              salePrice="$260"
+              regularPrice="$360"
+              review="(65)"
+              discountClassName="hidden"
+            />
 
-            <Card image={BestCard1} title="The north coat" salePrice="$260" regularPrice="$360" review="(65)" discountClassName="hidden"/>
+            <Card
+              image={BestCard2}
+              title="Gucci duffle bag"
+              salePrice="$960"
+              regularPrice="$1160"
+              review="(65)"
+              discountClassName="hidden"
+            />
 
+            <Card
+              image={BestCard3}
+              title="RGB liquid CPU Cooler"
+              salePrice="$160"
+              regularPrice="$170"
+              review="(65)"
+              discountClassName="hidden"
+            />
 
-            <Card image={BestCard2} title="Gucci duffle bag" salePrice="$960" regularPrice="$1160" review="(65)" discountClassName="hidden"/>
-
-
-            <Card image={BestCard3} title="RGB liquid CPU Cooler" salePrice="$160" regularPrice="$170"  review="(65)" discountClassName="hidden"/>
-
-
-            <Card image={BestCard4} title="Small BookSelf" salePrice="$360" review="(65)" discountClassName="hidden"/>
-
+            <Card
+              image={BestCard4}
+              title="Small BookSelf"
+              salePrice="$360"
+              review="(65)"
+              discountClassName="hidden"
+            />
           </Grid>
 
-          <div className='pb-17 pt-35'>
-            <div className=' bg-[url(assets/box.png)] bg-cover bg-center bg-no-repeat'>
-
-            <div className='pb-16 pt-95 pl-15'>
-              <Button text="Buy Now" className=""/>
+          <div className="pb-17 pt-35">
+            <div className=" bg-[url(assets/box.png)] bg-cover bg-center bg-no-repeat">
+              <div className="pb-16 pt-95 pl-15">
+                <Button text="Buy Now" className="" />
+              </div>
             </div>
-          </div>
           </div>
 
           {/* Best Section end */}
 
-
           {/* Explore Section start */}
 
-          <SubTitle text="Our Products" className="pt-20"/>
+          <SubTitle text="Our Products" className="pt-20" />
           <Flex className="pt-5 pb-15 justify-between items-center">
             <div>
               <Title text="Explore Our Products" />
@@ -232,39 +282,127 @@ const Home = () => {
             </div>
           </Flex>
 
-
           <Grid className="grid-cols-4 gap-7.5">
+            <Card
+              image={ExploreCard1}
+              title="Breed Dry Dog Food"
+              salePrice="$100"
+              review="(35)"
+              discountClassName="hidden"
+            />
 
-            <Card image={ExploreCard1} title="Breed Dry Dog Food" salePrice="$100"  review="(35)" discountClassName="hidden"/>
+            <Card
+              image={ExploreCard2}
+              title="CANON EOS DSLR Camera"
+              salePrice="$360"
+              review="(95)"
+              discountClassName="hidden"
+            />
 
+            <Card
+              image={ExploreCard3}
+              title="ASUS FHD Gaming Laptop"
+              salePrice="$700"
+              review="(325)"
+              discountClassName="hidden"
+            />
 
-            <Card image={ExploreCard2} title="CANON EOS DSLR Camera" salePrice="$360"  review="(95)" discountClassName="hidden"/>
+            <Card
+              image={ExploreCard4}
+              title="Curology Product Set "
+              salePrice="$500"
+              review="(145)"
+              discountClassName="hidden"
+            />
 
+            <Card
+              image={ExploreCard1}
+              title="Breed Dry Dog Food"
+              salePrice="$100"
+              review="(35)"
+              discountClassName="hidden"
+            />
 
-            <Card image={ExploreCard3} title="ASUS FHD Gaming Laptop" salePrice="$700"  review="(325)" discountClassName="hidden"/>
+            <Card
+              image={ExploreCard2}
+              title="CANON EOS DSLR Camera"
+              salePrice="$360"
+              review="(95)"
+              discountClassName="hidden"
+            />
 
+            <Card
+              image={ExploreCard3}
+              title="ASUS FHD Gaming Laptop"
+              salePrice="$700"
+              review="(325)"
+              discountClassName="hidden"
+            />
 
-            <Card image={ExploreCard4} title="Curology Product Set " salePrice="$500"  review="(145)" discountClassName="hidden"/>
-
-            <Card image={ExploreCard1} title="Breed Dry Dog Food" salePrice="$100"  review="(35)" discountClassName="hidden"/>
-
-            <Card image={ExploreCard2} title="CANON EOS DSLR Camera" salePrice="$360"  review="(95)" discountClassName="hidden"/>
-
-            <Card image={ExploreCard3} title="ASUS FHD Gaming Laptop" salePrice="$700"  review="(325)" discountClassName="hidden"/>
-
-            <Card image={ExploreCard4} title="Curology Product Set " salePrice="$500"  review="(145)" discountClassName="hidden"/>
+            <Card
+              image={ExploreCard4}
+              title="Curology Product Set "
+              salePrice="$500"
+              review="(145)"
+              discountClassName="hidden"
+            />
           </Grid>
 
-          <div className='text-center mt-15 mb-42'>
-            <Button text="view All Products"/>
+          <div className="text-center mt-15 mb-42">
+            <Button text="view All Products" />
           </div>
           {/* Explore Section end */}
 
 
+
+          {/* New Arrival Section end */}
+
+          <SubTitle text="Featured" />
+          <Title text="New Arrival" className="pt-5 pb-15" />
+
+          <Grid className="grid-cols-2 gap-x-7.5">
+            <div className="max-w-142.5">
+              <Image src={ArrivalCard1} />
+            </div>
+
+            <div>
+              <Grid className="grid-cols-2 gap-7.5">
+                <div className="col-span-2 max-w-142.5">
+                  <Image src={ArrivalCard2} />
+                </div>
+
+                <div className="max-w-67.5">
+                  <Image src={ArrivalCard3} />
+                </div>
+
+                <div className="max-w-67.5">
+                  <Image src={ArrivalCard4} />
+                </div>
+              </Grid>
+            </div>
+          </Grid>
           {/* New Arrival Section end */}
 
 
-          {/* New Arrival Section end */}
+
+
+
+          {/*Service Section end */}
+
+          <Grid className="grid-cols-3 gap-x-7.5 my-35">
+
+
+           <CustomerService icon={<TbTruckDelivery />} title="FREE AND FAST DELIVERY" text="Free delivery for all orders over $140"/>
+
+           <CustomerService icon={<LuHeadset />} title="24/7 CUSTOMER SERVICE" text="Friendly 24/7 customer support"/>
+
+           <CustomerService icon={<CiBookmarkCheck />} title="MONEY BACK GUARANTEE" text="We reurn money within 30 days"/>
+
+
+          </Grid>
+          {/*Service Section end */}
+
+
         </Container>
       </section>
 

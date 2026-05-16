@@ -21,6 +21,7 @@ import AboutCard3 from '../assets/aboutcard3.png'
 import { TbCircleDotFilled, TbTruckDelivery } from 'react-icons/tb'
 import { LuHeadset } from 'react-icons/lu'
 import { CiBookmarkCheck } from 'react-icons/ci'
+import CustomerService from '../components/CustomerService'
 
 const About = () => {
   return (
@@ -42,7 +43,9 @@ const About = () => {
 
           <Flex className="mt-10 mb-35 items-center">
             <div className="w-6/12 pr-5">
-              <h2 className='font-inter font-semibold text-black text-[54px] pb-10'>Our Story</h2>
+              <h2 className="font-inter font-semibold text-black text-[54px] pb-10">
+                Our Story
+              </h2>
               <p className="text-base font-pop font-normal text-black pb-6">
                 Launced in 2015, Exclusive is South Asia’s premier online
                 shopping makterplace with an active presense in Bangladesh.
@@ -115,47 +118,11 @@ const About = () => {
           </div>
 
           <Grid className="grid-cols-3 gap-x-7.5">
+            <CustomerService icon={<TbTruckDelivery />} title="FREE AND FAST DELIVERY" text="Free delivery for all orders over $140"/>
 
-            <div className=" flex flex-col items-center ">
-              <div className="bg-[#00000033] rounded-full p-2">
-                <div className="text-[40px] text-white bg-black p-2 rounded-full ">
-                  <TbTruckDelivery />
-                </div>
-              </div>
-              <h4 className="font-semibold font-pop text-black text-xl pb-2 pt-10 ">
-                FREE AND FAST DELIVERY
-              </h4>
-              <p className="text-sm font-pop text-black font-normal ">
-                Free delivery for all orders over $140
-              </p>
-            </div>
-            <div className=" flex flex-col items-center ">
-              <div className="bg-[#00000033] rounded-full p-2">
-                <div className="text-[40px] text-white bg-black p-2 rounded-full ">
-                  <LuHeadset />
-                </div>
-              </div>
-              <h4 className="font-semibold font-pop text-black text-xl pb-2 pt-10 ">
-                24/7 CUSTOMER SERVICE
-              </h4>
-              <p className="text-sm font-pop text-black font-normal ">
-                Friendly 24/7 customer support
-              </p>
-            </div>
-            <div className=" flex flex-col items-center ">
-              <div className="bg-[#00000033] rounded-full p-2">
-                <div className="text-[40px] text-white bg-black p-2 rounded-full ">
-                  <CiBookmarkCheck />
-                </div>
-              </div>
-              <h4 className="font-semibold font-pop text-black text-xl pb-2 pt-10 ">
-                MONEY BACK GUARANTEE
-              </h4>
-              <p className="text-sm font-pop text-black font-normal ">
-                We reurn money within 30 days
-              </p>
-            </div>
+           <CustomerService icon={<LuHeadset />} title="24/7 CUSTOMER SERVICE" text="Friendly 24/7 customer support"/>
 
+           <CustomerService icon={<CiBookmarkCheck />} title="MONEY BACK GUARANTEE" text="We reurn money within 30 days"/>
           </Grid>
         </Container>
       </section>
