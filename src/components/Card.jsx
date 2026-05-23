@@ -5,7 +5,7 @@ import { LuEye } from 'react-icons/lu'
 
 const Card = ({image,title,salePrice,regularPrice,discount,review,discountClassName}) => {
   return (
-    <div className='max-w-67.5 cursor-pointer'>
+    <div className='w-67.5 cursor-pointer'>
       <div className='relative group overflow-hidden w-full h-62.5 bg-input flex justify-center items-center'>
         <Image src={image}/>
 

@@ -26,8 +26,6 @@ import CustomerService from '../components/CustomerService'
 const About = () => {
   return (
     <div>
-      <Offer />
-      <Navber />
 
       <section className="py-25">
         <Container>
@@ -126,8 +124,6 @@ const About = () => {
           </Grid>
         </Container>
       </section>
-
-      <Footer />
     </div>
   )
 }

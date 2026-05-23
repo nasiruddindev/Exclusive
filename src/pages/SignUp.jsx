@@ -13,11 +13,6 @@ import SignUpBanner from '../assets/signupbanner.png'
 const SignUp = () => {
   return (
     <div>
-      <Offer/>
-      <Navber/>
-
-
-
       <section className='py-30'>
         <Container>
           <Flex className="items-center">
@@ -49,9 +44,6 @@ const SignUp = () => {
           </Flex>
         </Container>
       </section>
-
-
-      <Footer/>
     </div>
   )
 }

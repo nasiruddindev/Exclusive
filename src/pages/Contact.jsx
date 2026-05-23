@@ -14,9 +14,6 @@ import Button from '../components/Button'
 const Contact = () => {
   return (
     <div>
-      <Offer />
-      <Navber />
-
       <section className="py-30">
         <Container>
           <div>
@@ -98,8 +95,6 @@ const Contact = () => {
           </Flex>
         </Container>
       </section>
-
-      <Footer />
     </div>
   )
 }
