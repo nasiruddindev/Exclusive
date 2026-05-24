@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import SignUp from "./pages/SignUp";
 import RooyLayout from "./layouts/RooyLayout";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
+import WishList from "./pages/WishList";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
     <Route path="contact" element={<Contact />}></Route>
     <Route path="signup" element={<SignUp />}></Route>
     <Route path="productdetails" element={<ProductDetailsPage />}></Route>
+    <Route path="wishlist" element={<WishList />}></Route>
 
 
     </Route>
