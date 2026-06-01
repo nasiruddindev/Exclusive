@@ -27,7 +27,7 @@ const About = () => {
   return (
     <div>
 
-      <section className="py-25">
+      <section className="py-35 relative overflow-hidden">
         <Container>
           <div>
             <ul className="flex gap-x-2">
@@ -59,7 +59,7 @@ const About = () => {
               </p>
             </div>
             <div className="w-6/12">
-              <Image src={AboutBanner} />
+              <Image src={AboutBanner} className="absolute top-1/6 -translate-y-1/2 right-0 w-[calc(50%-58px)]"/>
             </div>
           </Flex>
 
