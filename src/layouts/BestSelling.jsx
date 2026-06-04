@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from '../components/Container'
 import SubTitle from '../components/SubTitle'
 import Flex from '../components/Flex'
 import Title from '../components/Title'
 import Button from '../components/Button'
-import Grid from '../components/Grid'
 import Card from '../components/Card'
-import BestCard1 from '../assets/bestcard1.png'
-import BestCard2 from '../assets/bestcard2.png'
-import BestCard3 from '../assets/bestcard3.png'
-import BestCard4 from '../assets/bestcard4.png'
 
 const BestSelling = () => {
+
+  let [allData,setAllData] = useState([])
+
+
+  useEffect(()=>{
+    fetch("https://fakestoreapi.com/products")
+    .then(res=>res.json())
+    .then(data=>setAllData(data))
+  },[])
+
+
+
   return (
     <section>
       <Container>
@@ -26,42 +33,24 @@ const BestSelling = () => {
             </div>
           </Flex>
 
-          <Grid className="grid-cols-4">
-            <Card
-              image={BestCard1}
-              title="The north coat"
-              salePrice="$260"
+          <Flex className="flex-wrap gap-x-7.5">
+
+            {
+              allData.map((item,index)=>(
+                index>4 && index<9 &&
+                <Card
+              image={item.image}
+              title={item.title}
+              salePrice={item.price}
               regularPrice="$360"
               review="(65)"
               discountClassName="hidden"
             />
+              ))
+            }
 
-            <Card
-              image={BestCard2}
-              title="Gucci duffle bag"
-              salePrice="$960"
-              regularPrice="$1160"
-              review="(65)"
-              discountClassName="hidden"
-            />
 
-            <Card
-              image={BestCard3}
-              title="RGB liquid CPU Cooler"
-              salePrice="$160"
-              regularPrice="$170"
-              review="(65)"
-              discountClassName="hidden"
-            />
-
-            <Card
-              image={BestCard4}
-              title="Small BookSelf"
-              salePrice="$360"
-              review="(65)"
-              discountClassName="hidden"
-            />
-          </Grid>
+          </Flex>
 
           <div className="pb-17 pt-35">
             <div className=" bg-[url(assets/box.png)] bg-cover bg-center bg-no-repeat">
