@@ -11,6 +11,9 @@ import SignUp from "./pages/SignUp";
 import RooyLayout from "./layouts/RooyLayout";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import WishList from "./pages/WishList";
+import Login from "./pages/Login";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,12 +23,11 @@ const router = createBrowserRouter(
     <Route path="/about" element={<About />}></Route>
     <Route path="/contact" element={<Contact />}></Route>
     <Route path="/signup" element={<SignUp />}></Route>
-
-
-    <Route path="/productdetails" element={<ProductDetailsPage />}></Route>
-
-
+    <Route path="/login" element={<Login />}></Route>
     <Route path="/wishlist" element={<WishList />}></Route>
+    <Route path="/cart" element={<Cart />}></Route>
+    <Route path="/checkout" element={<Checkout />}></Route>
+    <Route path="/productdetails" element={<ProductDetailsPage />}></Route>
 
 
     </Route>

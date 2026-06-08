@@ -12,15 +12,24 @@ import ProductdetailsSize from '../components/ProductdetailsSize'
 import { TbTruckDelivery } from 'react-icons/tb'
 import { LuRefreshCcw } from 'react-icons/lu'
 import Card from '../components/Card'
-import Card1 from '../assets/card1.png'
-import Card2 from '../assets/card2.png'
-import Card3 from '../assets/card3.png'
-import Card4 from '../assets/bestcard3.png'
 import Button from '../components/Button'
 import { CiHeart } from 'react-icons/ci'
 import SubTitle from '../components/SubTitle'
+import { useEffect, useState } from 'react'
 
 const ProductDetailsPage = () => {
+
+
+  let [allData,setAllData] = useState([])
+
+
+  useEffect(()=>{
+    fetch("https://fakestoreapi.com/products")
+  .then(res=>res.json())
+  .then(data=>setAllData(data))
+  },[])
+
+
   return (
     <section className='pb-35'>
       <Container>
@@ -171,15 +180,18 @@ const ProductDetailsPage = () => {
 
         <SubTitle text="Related Item" className="pt-35 pb-15"/>
 
-        <Flex className="justify-between">
+        <Flex className=" flex-wrap gap-x-7.5">
 
-          <Card image={Card1} title="HAVIT HV-G92 Gamepad" regularPrice="160" salePrice="100" discount="-40%" review="(88)"/>
+          {
+            allData.map((item,index)=>(
 
-          <Card image={Card2} title="AK-900 Wired Keyboard" regularPrice="1160" salePrice="960" discount="-30%" review="(75)"/>
+              index>15 && index<21 &&
 
-          <Card image={Card3} title="IPS LCD Gaming Monitor" regularPrice="400" salePrice="370" discount="-30%" review="(99)"/>
+              <Card image={item.image} title={item.title}regularPrice="160" salePrice={item.price} discount="-40%" review="(88)"/>
+            ))
+          }
 
-          <Card image={Card4} title="RGB liquid CPU Cooler" regularPrice="170" salePrice="160" discount="-30%" review="(65)"/>
+
         </Flex>
       </Container>
     </section>
