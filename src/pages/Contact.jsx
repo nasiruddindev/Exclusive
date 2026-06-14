@@ -67,23 +67,23 @@ const Contact = () => {
 
             <div className="w-8/12">
               <div className="shadow-2xl px-8 py-10">
-                <div className='flex justify-between'>
+                <div className='flex gap-x-4'>
                   <Input
                   type="text"
                   placeholder="Your Name"
-                  className="bg-input outline-none rounded"
+                  className="w-56.75 bg-input outline-none rounded"
                 />
 
                 <Input
                   type="email"
                   placeholder="Your Email"
-                  className="bg-input outline-none rounded"
+                  className="w-56.75 bg-input outline-none rounded"
                 />
 
                 <Input
                   type="number"
                   placeholder="Your Phone"
-                  className="bg-input outline-none rounded"
+                  className="w-56.75 bg-input outline-none rounded"
                 />
                 </div>
                 <textarea placeholder='Your Massage' className='bg-input mt-8 w-full h-45 rounded p-2'></textarea>

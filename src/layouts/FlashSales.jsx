@@ -10,6 +10,7 @@ import Button from '../components/Button'
 const FlashSales = () => {
 
   let [allData,setAllData] = useState([])
+  let [show,setShow] = useState(4)
 
 
   useEffect(()=>{
@@ -41,9 +42,10 @@ const FlashSales = () => {
 
           <Flex className="flex-wrap gap-x-7.5">
             {
-              allData.map((item,index)=>(
-                index<4 &&
+              allData.slice(0,show).map((item,index)=>(
+
                 <Card
+                key={index}
               image={item.image}
               title={item.title}
               salePrice={item.price}
@@ -58,7 +60,15 @@ const FlashSales = () => {
           </Flex>
 
           <div className="py-15 text-center border-b border-black/30">
-            <Button text="View All Products" />
+          {
+            show<allData.length?<div onClick={()=>setShow(show+4)}>
+              <Button text="View All Products" />
+              </div>:<div onClick={()=>setShow(show-4)}>
+              <Button text="Less Products" />
+              </div>
+          }
+
+
           </div>
       </Container>
     </section>

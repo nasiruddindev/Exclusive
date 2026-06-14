@@ -12,9 +12,8 @@ import ExploreCard4 from '../assets/explorecard4.png'
 import Button from '../components/Button'
 
 const Explore = () => {
-
-
   let [allData,setAllData] = useState([])
+  let [show,setShow] = useState(16)
 
 
 
@@ -45,9 +44,10 @@ const Explore = () => {
 
         <Flex className="gap-7.5 flex-wrap">
           {
-            allData.map((item,index)=>(
-              index>9 && index<18 &&
+            allData.slice(8,show).map((item,index)=>(
+
               <Card
+              key={index}
             image={item.image}
             title={item.title}
             salePrice={item.price}
@@ -59,7 +59,9 @@ const Explore = () => {
         </Flex>
 
         <div className="text-center mt-15 mb-42">
-          <Button text="view All Products" />
+          <div onClick={()=>setShow(show+allData.length)}>
+            <Button text="view All Products" />
+          </div>
         </div>
       </Container>
     </section>

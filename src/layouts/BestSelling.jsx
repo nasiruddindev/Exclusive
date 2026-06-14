@@ -7,38 +7,33 @@ import Button from '../components/Button'
 import Card from '../components/Card'
 
 const BestSelling = () => {
+  let [allData, setAllData] = useState([])
+  let [show, setShow] = useState(8)
 
-  let [allData,setAllData] = useState([])
-
-
-  useEffect(()=>{
-    fetch("https://fakestoreapi.com/products")
-    .then(res=>res.json())
-    .then(data=>setAllData(data))
-  },[])
-
-
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then((res) => res.json())
+      .then((data) => setAllData(data))
+  }, [])
 
   return (
     <section>
       <Container>
         <SubTitle text="This Month" className="pt-17" />
-          <Flex className="pt-5 pb-15 justify-between items-center">
-            <div>
-              <Title text="Best Selling Products" />
-            </div>
+        <Flex className="pt-5 pb-15 justify-between items-center">
+          <div>
+            <Title text="Best Selling Products" />
+          </div>
 
-            <div>
-              <Button text="View All" />
-            </div>
-          </Flex>
+          <div onClick={()=>setShow(show+allData.length)}>
+            <Button text="View All" />
+          </div>
+        </Flex>
 
-          <Flex className="flex-wrap gap-x-7.5">
-
-            {
-              allData.map((item,index)=>(
-                index>4 && index<9 &&
-                <Card
+        <Flex className="flex-wrap gap-x-7.5">
+          {allData.slice(4, show).map((item, index) => (
+            <Card
+              key={index}
               image={item.image}
               title={item.title}
               salePrice={item.price}
@@ -46,19 +41,16 @@ const BestSelling = () => {
               review="(65)"
               discountClassName="hidden"
             />
-              ))
-            }
+          ))}
+        </Flex>
 
-
-          </Flex>
-
-          <div className="pb-17 pt-35">
-            <div className=" bg-[url(assets/box.png)] bg-cover bg-center bg-no-repeat">
-              <div className="pb-16 pt-95 pl-15">
-                <Button text="Buy Now" className="" />
-              </div>
+        <div className="pb-17 pt-35">
+          <div className=" bg-[url(assets/box.png)] bg-cover bg-center bg-no-repeat">
+            <div className="pb-16 pt-95 pl-15">
+              <Button text="Buy Now" className="" />
             </div>
           </div>
+        </div>
       </Container>
     </section>
   )

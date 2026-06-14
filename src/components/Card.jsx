@@ -4,12 +4,15 @@ import { FaRegHeart, FaStar } from 'react-icons/fa'
 import { LuEye } from 'react-icons/lu'
 import { IoCartOutline } from 'react-icons/io5'
 import { RiDeleteBinLine } from 'react-icons/ri'
+import { Link } from 'react-router-dom'
 
-const Card = ({image,title,salePrice,regularPrice,discount,review,discountClassName,ulClassName,heartIconclassName,eyeIconClassName,deleteIcon,cartIconClassName}) => {
+const Card = ({id,image,title,salePrice,regularPrice,discount,review,discountClassName,ulClassName,heartIconclassName,eyeIconClassName,deleteIcon,cartIconClassName}) => {
   return (
     <div className='w-67.5 cursor-pointer'>
       <div className='relative group overflow-hidden w-full h-62.5 bg-input flex justify-center items-center'>
+        <Link to={`/productdetails/${id}`}>
         <Image src={image}/>
+        </Link>
 
         <div className={`absolute top-3 left-3 bg-secondary px-3 py-1 rounded ${discountClassName}`}><p className='text-primary'> {discount}</p></div>
 
@@ -44,7 +47,9 @@ const Card = ({image,title,salePrice,regularPrice,discount,review,discountClassN
 
 
 
+      <Link to={`/productsderails/${id}`}>
       <h4 className='font-pop font-medium text-base text-black pt-4 pb-2'>{title}</h4>
+      </Link>
       <p className='font-pop font-medium text-base text-secondary'>{salePrice} <span className='text-black/50 pl-3'><del>{regularPrice}</del></span></p>
 
       <ul className={`flex pt-2 ${ulClassName}`}>
