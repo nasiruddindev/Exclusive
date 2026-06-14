@@ -18,13 +18,13 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const ProductDetailsPage = () => {
-  let [allData, setAllData] = useState([])
+  // let [allData, setAllData] = useState([])
 
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-    .then((res) => res.json())
-    .then((data) => setAllData(data))
-  }, [])
+  // useEffect(() => {
+  //   fetch('https://fakestoreapi.com/products')
+  //   .then((res) => res.json())
+  //   .then((data) => setAllData(data))
+  // }, [])
 
   const sizes = ['XS', 'S', 'M', 'L', 'XL']
 
@@ -34,16 +34,18 @@ const ProductDetailsPage = () => {
     window.scrollTo({top : 0})
   },[])
 
-  let [Data, setData] = useState([])
+  let [detailsOutput, setDetailsOutput] = useState([])
   let params = useParams()
+  // console.log(params)
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${params.id}`)
       .then((res) => res.json())
-      .then((data) => setData(data))
+      .then((data) => setDetailsOutput(data))
+      console.log(detailsOutput)
   }, [])
 
-  console.log(params.id)
+  // console.log(params.id)
 
 
   return (
@@ -64,22 +66,22 @@ const ProductDetailsPage = () => {
         <Flex>
           <div className="w-2/12 flex flex-col gap-y-4">
             <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center">
-              <Image src={Data.image} />
+              <Image src={detailsOutput.image} />
             </div>
             <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center">
-              <Image src={Data.image} />
+              <Image src={detailsOutput.image} />
             </div>
             <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center">
-              <Image src={Data.image} />
+              <Image src={detailsOutput.image} />
             </div>
             <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center">
-              <Image src={Data.image} />
+              <Image src={detailsOutput.image} />
             </div>
           </div>
 
           <div className="w-6/12">
             <div className="w-125 h-150 bg-input rounded flex justify-center items-center">
-              <Image src={Data.image} />
+              <Image src={detailsOutput.image} />
             </div>
           </div>
 
@@ -204,7 +206,7 @@ const ProductDetailsPage = () => {
         <SubTitle text="Related Item" className="pt-35 pb-15" />
 
         <Flex className=" flex-wrap gap-x-7.5">
-          {allData.map(
+          {/* {allData.map(
             (item, index) =>
               index > 15 &&
               index < 21 && (
@@ -218,7 +220,7 @@ const ProductDetailsPage = () => {
                   review="(88)"
                 />
               )
-          )}
+          )} */}
         </Flex>
       </Container>
     </section>

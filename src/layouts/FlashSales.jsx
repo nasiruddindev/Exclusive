@@ -15,8 +15,8 @@ const FlashSales = () => {
 
   useEffect(()=>{
     fetch("https://fakestoreapi.com/products")
-    .then(res=>res.json())
-    .then(data=>setAllData(data))
+    .then((res)=>res.json())
+    .then((data)=>setAllData(data))
   },[])
 
 

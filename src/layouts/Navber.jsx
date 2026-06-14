@@ -22,7 +22,7 @@ const Navber = () => {
 
   function searchandle(e){
     setInput(e.target.value)
-    let search = allData.filter((item)=>item.title.includes(e.target.value))
+    let search = allData.filter((item)=>item.title.toLowerCase().includes(e.target.value.toLowerCase()))
     setSearch(search)
 
     console.log(search);
@@ -69,7 +69,7 @@ const Navber = () => {
                 {
                   search.map((item)=>(
                   <ul>
-                    <li className='text-xl font-semibold py-2'>{item.title}</li>
+                    <Link to={`/productdetails/${item.id}`}><li className='text-xl font-semibold py-2'>{item.title}</li></Link>
                   </ul>
                   ))
                 }
