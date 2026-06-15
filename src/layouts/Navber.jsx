@@ -24,8 +24,6 @@ const Navber = () => {
     setInput(e.target.value)
     let search = allData.filter((item)=>item.title.toLowerCase().includes(e.target.value.toLowerCase()))
     setSearch(search)
-
-    console.log(search);
   }
 
   return (
@@ -61,7 +59,6 @@ const Navber = () => {
                 placeholder="What are you looking for"
                 className="placeholder:text-xs placeholder:text-[#00000080] outline-none"
               />
-
               {
                 search.length&&
                 input.length &&
@@ -69,7 +66,12 @@ const Navber = () => {
                 {
                   search.map((item)=>(
                   <ul>
-                    <Link to={`/productdetails/${item.id}`}><li className='text-xl font-semibold py-2'>{item.title}</li></Link>
+                    <Link to={`/productdetails/${item.id}`}
+                    onClick={()=>{
+                      setInput([])
+                      setSearch([])
+                    }}
+                    ><li className='text-xl font-semibold py-2'>{item.title}</li></Link>
                   </ul>
                   ))
                 }

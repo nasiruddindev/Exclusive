@@ -1,7 +1,4 @@
 import React from 'react'
-import Offer from '../layouts/Offer'
-import Navber from '../layouts/Navber'
-import Footer from '../layouts/Footer'
 import Container from '../components/Container'
 import Flex from '../components/Flex'
 import ListItem from '../components/ListItem'

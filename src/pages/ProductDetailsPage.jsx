@@ -18,13 +18,13 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const ProductDetailsPage = () => {
-  // let [allData, setAllData] = useState([])
+  let [allData, setAllData] = useState([])
 
-  // useEffect(() => {
-  //   fetch('https://fakestoreapi.com/products')
-  //   .then((res) => res.json())
-  //   .then((data) => setAllData(data))
-  // }, [])
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+    .then((res) => res.json())
+    .then((data) => setAllData(data))
+  }, [])
 
   const sizes = ['XS', 'S', 'M', 'L', 'XL']
 
@@ -36,14 +36,14 @@ const ProductDetailsPage = () => {
 
   let [detailsOutput, setDetailsOutput] = useState([])
   let params = useParams()
-  // console.log(params)
+  console.log(params.id)
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${params.id}`)
       .then((res) => res.json())
       .then((data) => setDetailsOutput(data))
       console.log(detailsOutput)
-  }, [])
+    }, [])
 
   // console.log(params.id)
 
@@ -87,7 +87,7 @@ const ProductDetailsPage = () => {
 
           <div className="w-4/12">
             <h2 className="font-inter font-semibold text-2xl text-black">
-              Havic HV G-92 Gamepad
+              {detailsOutput.title}
             </h2>
             <Flex className="py-4">
               <ul className="flex">
@@ -115,12 +115,10 @@ const ProductDetailsPage = () => {
               </p>
             </Flex>
             <p className="text-black font-normal font-inter text-2xl">
-              $192.00
+              ${detailsOutput.price}
             </p>
             <p className="font-pop font-normal text-sm text-black w-93.25 pt-6 border-b border-black/50 pb-6 mb-6">
-              PlayStation 5 Controller Skin High quality vinyl with air channel
-              adhesive for easy bubble free install & mess free removal Pressure
-              sensitive.
+              {detailsOutput.description}
             </p>
 
             <Flex className="gap-x-6 items-center">
@@ -206,7 +204,7 @@ const ProductDetailsPage = () => {
         <SubTitle text="Related Item" className="pt-35 pb-15" />
 
         <Flex className=" flex-wrap gap-x-7.5">
-          {/* {allData.map(
+          {allData.map(
             (item, index) =>
               index > 15 &&
               index < 21 && (
@@ -220,7 +218,7 @@ const ProductDetailsPage = () => {
                   review="(88)"
                 />
               )
-          )} */}
+          )}
         </Flex>
       </Container>
     </section>
