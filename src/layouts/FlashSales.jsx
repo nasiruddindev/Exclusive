@@ -46,6 +46,7 @@ const FlashSales = () => {
 
                 <Card
                 key={index}
+                id={item.id}
               image={item.image}
               title={item.title}
               salePrice={item.price}

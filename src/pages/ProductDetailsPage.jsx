@@ -36,8 +36,7 @@ const ProductDetailsPage = () => {
 
   let [detailsOutput, setDetailsOutput] = useState([])
   let params = useParams()
-  console.log(params.id)
-
+  
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${params.id}`)
       .then((res) => res.json())
@@ -45,7 +44,6 @@ const ProductDetailsPage = () => {
       console.log(detailsOutput)
     }, [])
 
-  // console.log(params.id)
 
 
   return (
@@ -56,32 +54,32 @@ const ProductDetailsPage = () => {
             Account <p className="inline-block px-3">/</p>
           </li>
           <li className="text-sm font-pop font-normal text-black/50 hover:text-black duration-300 cursor-pointer">
-            Gamming <p className="inline-block px-3">/</p>
+            {detailsOutput.category} <p className="inline-block px-3">/</p>
           </li>
           <li className="text-sm font-pop font-normal text-black/50 hover:text-black duration-300 cursor-pointer">
-            Havic HV G-92 Gamepad
+            {detailsOutput.title}
           </li>
         </ul>
 
         <Flex>
           <div className="w-2/12 flex flex-col gap-y-4">
             <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center">
-              <Image src={detailsOutput.image} />
+              <Image src={detailsOutput.image} className="w-full h-full"/>
             </div>
             <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center">
-              <Image src={detailsOutput.image} />
+              <Image src={detailsOutput.image} className="w-full h-full"/>
             </div>
             <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center">
-              <Image src={detailsOutput.image} />
+              <Image src={detailsOutput.image} className="w-full h-full"/>
             </div>
             <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center">
-              <Image src={detailsOutput.image} />
+              <Image src={detailsOutput.image} className="w-full h-full"/>
             </div>
           </div>
 
           <div className="w-6/12">
             <div className="w-125 h-150 bg-input rounded flex justify-center items-center">
-              <Image src={detailsOutput.image} />
+              <Image src={detailsOutput.image} className="bg-cover"/>
             </div>
           </div>
 
@@ -210,6 +208,7 @@ const ProductDetailsPage = () => {
               index < 21 && (
                 <Card
                 key={index}
+                id={item.id}
                   image={item.image}
                   title={item.title}
                   regularPrice="160"

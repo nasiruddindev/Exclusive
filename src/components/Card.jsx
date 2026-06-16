@@ -47,7 +47,7 @@ const Card = ({id,image,title,salePrice,regularPrice,discount,review,discountCla
 
 
 
-      <Link to={`/productsderails/${id}`}>
+      <Link to={`/productdetails/${id}`}>
       <h4 className='font-pop font-medium text-base text-black pt-4 pb-2'>{title}</h4>
       </Link>
       <p className='font-pop font-medium text-base text-secondary'>{salePrice} <span className='text-black/50 pl-3'><del>{regularPrice}</del></span></p>

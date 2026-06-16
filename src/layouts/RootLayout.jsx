@@ -4,7 +4,7 @@ import Navber from './Navber'
 import Footer from './Footer'
 import { Outlet } from 'react-router-dom'
 
-const RooyLayout = () => {
+const RootLayout = () => {
   return (
     <div>
       <Offer/>
@@ -15,4 +15,4 @@ const RooyLayout = () => {
   )
 }
 
-export default RooyLayout
+export default RootLayout

@@ -34,6 +34,7 @@ const BestSelling = () => {
           {allData.slice(4, show).map((item, index) => (
             <Card
               key={index}
+              id={item.id}
               image={item.image}
               title={item.title}
               salePrice={item.price}

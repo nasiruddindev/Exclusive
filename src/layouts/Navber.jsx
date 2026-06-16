@@ -60,18 +60,18 @@ const Navber = () => {
                 className="placeholder:text-xs placeholder:text-[#00000080] outline-none"
               />
               {
-                search.length&&
-                input.length &&
-                <div className='absolute top-14 left-0 w-full  bg-red-500 rounded p-5 z-10'>
+                search.length>0&&
+                input.length>0&&
+                <div className='absolute top-14 left-0 w-full  bg-linear-to-r from-black/70 to-black rounded p-5 z-10'>
                 {
-                  search.map((item)=>(
+                  search.map((item,index)=>(
                   <ul>
                     <Link to={`/productdetails/${item.id}`}
                     onClick={()=>{
                       setInput([])
                       setSearch([])
                     }}
-                    ><li className='text-xl font-semibold py-2'>{item.title}</li></Link>
+                    ><li className='text-white text-xl font-semibold py-2'>{item.title}</li></Link>
                   </ul>
                   ))
                 }
