@@ -5,8 +5,24 @@ import { LuEye } from 'react-icons/lu'
 import { IoCartOutline } from 'react-icons/io5'
 import { RiDeleteBinLine } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { addtocart } from '../slices/addToCartSlice'
 
 const Card = ({id,image,title,salePrice,regularPrice,discount,review,discountClassName,ulClassName,heartIconclassName,eyeIconClassName,deleteIcon,cartIconClassName}) => {
+
+  let dispatch = useDispatch()
+
+  let addcartItem = ()=>{
+    dispatch(addtocart(
+      {
+        title:title,
+        src:image,
+        price:salePrice,
+        quantity:1
+      }
+    ))
+  }
+
   return (
     <div className='w-67.5 cursor-pointer'>
       <div className='relative group overflow-hidden w-full h-62.5 bg-input flex justify-center items-center'>
@@ -28,7 +44,9 @@ const Card = ({id,image,title,salePrice,regularPrice,discount,review,discountCla
 
 
 
-        <div className='absolute -bottom-10 group-hover:bottom-0 duration-300 w-full bg-black py-2'>
+        <div
+        onClick={addcartItem}
+        className='absolute -bottom-10 group-hover:bottom-0 duration-300 w-full bg-black py-2'>
           <div className='flex items-center justify-center gap-x-2'>
             {
               cartIconClassName&&

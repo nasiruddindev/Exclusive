@@ -36,13 +36,13 @@ const ProductDetailsPage = () => {
 
   let [detailsOutput, setDetailsOutput] = useState([])
   let params = useParams()
-  
+
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${params.id}`)
       .then((res) => res.json())
       .then((data) => setDetailsOutput(data))
       console.log(detailsOutput)
-    }, [])
+    }, [params.id])
 
 
 

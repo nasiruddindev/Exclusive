@@ -8,15 +8,11 @@ const Products = () => {
     <section>
       <Container>
         <Flex>
-          <div className='w-3/12'>
-          pagination
-          </div>
+          <div className="w-3/12">pagination</div>
 
-
-          <div className='w-9/12'>
+          <div className="w-9/12">
 
             <Pagination itemsPerPage={4} />
-
           </div>
         </Flex>
       </Container>
