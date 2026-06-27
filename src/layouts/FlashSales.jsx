@@ -27,10 +27,10 @@ const FlashSales = () => {
         <SubTitle text="Today's" />
           <Flex className="pt-6 pb-8 justify-between items-center">
             <div>
-              <Title text="Flash Sales" />
+              <Title text="Flash Sales"/>
             </div>
 
-            <div className="flex gap-x-2 items-center">
+            <div className="hidden md:flex gap-x-2 items-center">
               <div className="bg-input p-2 rounded-full">
                 <IoMdArrowBack className="text-2xl" />
               </div>
@@ -40,7 +40,7 @@ const FlashSales = () => {
             </div>
           </Flex>
 
-          <Flex className="flex-wrap gap-x-7.5">
+          <Flex className="flex-wrap justify-center gap-x-7.5">
             {
               allData.slice(0,show).map((item,index)=>(
 

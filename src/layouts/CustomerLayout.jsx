@@ -10,7 +10,7 @@ const CustomerLayout = () => {
   return (
     <section>
       <Container>
-        <Flex className="justify-between my-35">
+        <Flex className="justify-between my-20 md:my-35">
             <CustomerService
               icon={<TbTruckDelivery />}
               title="FREE AND FAST DELIVERY"

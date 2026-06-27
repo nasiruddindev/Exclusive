@@ -11,13 +11,17 @@ import Apple from '../assets/apple.png'
 import { RiFacebookFill } from 'react-icons/ri'
 import { FiTwitter } from 'react-icons/fi'
 import { FaInstagram, FaLinkedinIn } from 'react-icons/fa'
+import Grid from '../components/Grid'
+// flex-col md:flex-row items-center md:items-start gap-y-10 md:gap-y-0
 
 const footer = () => {
   return (
     <section className="bg-black pt-20 pb-15">
       <Container>
-        <Flex className="gap-x-10">
-          <div className="w-3/12">
+
+        <Grid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 px-5 md:px-0 mx-auto">
+
+          <div>
             <Image src={FooterLogo} />
             <p className="text-primary font-pop font-medium text-xl py-6">
               Subscribe
@@ -38,7 +42,7 @@ const footer = () => {
             </div>
           </div>
 
-          <div className="w-2/12">
+          <div>
           <h3 className='font-pop font-medium text-xl text-white pb-6'>Support</h3>
           <ul className='flex flex-col gap-y-4'>
             <FooterList text="111 Bijoy sarani, Dhaka,  DH 1515, Bangladesh."/>
@@ -47,7 +51,7 @@ const footer = () => {
           </ul>
           </div>
 
-          <div className="w-2/12">
+          <div>
           <h3 className='font-pop font-medium text-xl text-white pb-6'>Account</h3>
           <ul className='flex flex-col gap-y-4'>
             <FooterList text="My Account"/>
@@ -58,7 +62,7 @@ const footer = () => {
           </ul>
           </div>
 
-          <div className="w-2/12">
+          <div>
           <h3 className='font-pop font-medium text-xl text-white pb-6'>Quick Link</h3>
           <ul className='flex flex-col gap-y-4'>
             <FooterList text="Privacy Policy"/>
@@ -68,7 +72,7 @@ const footer = () => {
           </ul>
           </div>
 
-          <div className="w-3/12">
+          <div >
           <h3 className='font-pop font-medium text-xl text-white pb-6'>Download App</h3>
           <p className='text-primary text-xs font-medium font-pop pb-2'>Save $3 with App New User Only</p>
 
@@ -91,7 +95,9 @@ const footer = () => {
             </div>
 
           </div>
-        </Flex>
+        </Grid>
+
+
       </Container>
     </section>
   )

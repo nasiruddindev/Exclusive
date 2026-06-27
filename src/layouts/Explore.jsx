@@ -32,7 +32,7 @@ const Explore = () => {
             <Title text="Explore Our Products" />
           </div>
 
-          <div className="flex gap-x-2 items-center">
+          <div className="hidden md:flex gap-x-2 items-center">
             <div className="bg-input p-2 rounded-full">
               <IoMdArrowBack className="text-2xl" />
             </div>
@@ -42,7 +42,7 @@ const Explore = () => {
           </div>
         </Flex>
 
-        <Flex className="gap-7.5 flex-wrap">
+        <Flex className="gap-7.5 justify-center flex-wrap">
           {
             allData.slice(8,show).map((item,index)=>(
 
@@ -59,7 +59,7 @@ const Explore = () => {
           }
         </Flex>
 
-        <div className="text-center mt-15 mb-42">
+        <div className="text-center mt-15 mb-20 md:mb-42">
           <div onClick={()=>setShow(show+allData.length)}>
             <Button text="view All Products" />
           </div>

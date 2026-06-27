@@ -25,12 +25,12 @@ const BestSelling = () => {
             <Title text="Best Selling Products" />
           </div>
 
-          <div onClick={()=>setShow(show+allData.length)}>
+          <div onClick={()=>setShow(show+allData.length)} className='pr-2'>
             <Button text="View All" />
           </div>
         </Flex>
 
-        <Flex className="flex-wrap gap-x-7.5">
+        <Flex className="flex-wrap justify-center gap-x-7.5">
           {allData.slice(4, show).map((item, index) => (
             <Card
               key={index}
@@ -45,7 +45,7 @@ const BestSelling = () => {
           ))}
         </Flex>
 
-        <div className="pb-17 pt-35">
+        <div className="hidden md:block pb-17 pt-35">
           <div className=" bg-[url(assets/box.png)] bg-cover bg-center bg-no-repeat">
             <div className="pb-16 pt-95 pl-15">
               <Button text="Buy Now" className="" />

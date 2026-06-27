@@ -14,15 +14,15 @@ const NewArrival = () => {
     <section>
       <Container>
         <SubTitle text="Featured" />
-          <Title text="New Arrival" className="pt-5 pb-15" />
+          <Title text="New Arrival" className="pt-5 pb-10 md:pb-15" />
 
-          <Grid className="grid-cols-2 gap-x-7.5">
+          <Grid className="grid-cols-2 gap-x-5 md:gap-x-7.5">
             <div className="max-w-142.5">
               <Image src={ArrivalCard1} />
             </div>
 
             <div>
-              <Grid className="grid-cols-2 gap-7.5">
+              <Grid className="grid-cols-2 gap-3 md:gap-7.5">
                 <div className="col-span-2 max-w-142.5">
                   <Image src={ArrivalCard2} />
                 </div>

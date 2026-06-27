@@ -9,10 +9,10 @@ const CustomerService = ({icon,title,text}) => {
           {icon}
         </div>
       </div>
-      <h4 className="font-semibold font-pop text-black text-xl pb-2 pt-10 ">
+      <h4 className="font-semibold font-pop text-black text-base md:text-xl pb-2 pt-10 text-center ">
         {title}
       </h4>
-      <p className="text-sm font-pop text-black font-normal ">
+      <p className="text-xs md:text-sm font-pop text-black font-normal text-center">
         {text}
       </p>
     </div>

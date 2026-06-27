@@ -9,9 +9,11 @@ const Banner = () => {
   return (
     <section>
       <Container>
-        <Flex className="mb-35">
-          <div className="w-3/12">
-            <ul className="flex flex-col gap-y-4 border-r border-black/50 mr-13 pt-10 pr-4">
+        <Flex className="mb-20 md:mb-35 flex-col-reverse md:flex-row px-2">
+
+
+          <div className="md:w-3/12">
+            <ul className="flex flex-col  gap-y-4 px-10 md:border-r border-black/50 md:mr-13 pt-10 md:pr-4">
               <BannerList text="Woman’s Fashion" type={true} />
 
               <BannerList text="Men’s Fashion" type={true} />
@@ -32,7 +34,7 @@ const Banner = () => {
             </ul>
           </div>
 
-          <div className="w-9/12 pt-10">
+          <div className="md:w-9/12 pt-5  md:pt-10">
             <Image src={BannerImg} />
           </div>
         </Flex>

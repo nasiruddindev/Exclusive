@@ -3,7 +3,7 @@ import React from 'react'
 
 const CategoryList = ({text,icon}) => {
   return (
-    <div className='max-w-42.5 h-36.25 border border-black/30 flex flex-col justify-center items-center rounded group hover:bg-secondary hover:border-transparent duration-300 cursor-pointer'>
+    <div className='w-40 md:w-42.5 h-36.25 border border-black/30 flex flex-col justify-center items-center rounded group hover:bg-secondary hover:border-transparent duration-300 cursor-pointer'>
 
       <div className=''>{icon}</div>
 

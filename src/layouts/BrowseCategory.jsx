@@ -18,12 +18,12 @@ const BrowseCategory = () => {
     <section>
       <Container>
         <SubTitle text="Categories" className="pt-20" />
-          <Flex className="pt-5 pb-15 justify-between items-center">
+          <Flex className="pt-5 pb-10 md:pb-15 justify-between items-center">
             <div>
               <Title text="Browse By Category" />
             </div>
 
-            <div className="flex gap-x-2 items-center">
+            <div className="hidden md:flex gap-x-2 items-center">
               <div className="bg-input p-2 rounded-full">
                 <IoMdArrowBack className="text-2xl" />
               </div>
@@ -33,7 +33,7 @@ const BrowseCategory = () => {
             </div>
           </Flex>
 
-          <Grid className="grid-cols-6 gap-x-7.5 pb-18 border-b border-black/30">
+          <Flex className="flex-wrap justify-center gap-7.5 pb-18 border-b border-black/30">
             <CategoryList
               text="Phones"
               icon={
@@ -75,7 +75,7 @@ const BrowseCategory = () => {
                 <LuGamepad2 className="text-[56px] group-hover:text-white" />
               }
             />
-          </Grid>
+          </Flex>
       </Container>
     </section>
   )
