@@ -22,27 +22,41 @@ const ProductDetailsPage = () => {
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
-    .then((res) => res.json())
-    .then((data) => setAllData(data))
+      .then((res) => res.json())
+      .then((data) => setAllData(data))
   }, [])
 
   const sizes = ['XS', 'S', 'M', 'L', 'XL']
 
-
-
-  useEffect(()=>{
-    window.scrollTo({top : 0})
-  },[])
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [])
 
   let [detailsOutput, setDetailsOutput] = useState([])
   let params = useParams()
+  console.log(params)
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${params.id}`)
       .then((res) => res.json())
       .then((data) => setDetailsOutput(data))
-      console.log(detailsOutput)
-    }, [params.id])
+    console.log(detailsOutput)
+  }, [params.id])
+
+  let [count,setCount] = useState(1)
+
+  let handleInQuantity = ()=>{
+    setCount(count+1)
+  }
+
+  let handledeQuantity = ()=>{
+    count>1 && setCount(count-1)
+  }
+
+
+  let handleSize = (size)=>{
+
+  }
 
 
 
@@ -64,22 +78,22 @@ const ProductDetailsPage = () => {
         <Flex>
           <div className="w-2/12 flex flex-col gap-y-4">
             <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center">
-              <Image src={detailsOutput.image} className="w-full h-full"/>
+              <Image src={detailsOutput.image} className="w-full h-full" />
             </div>
             <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center">
-              <Image src={detailsOutput.image} className="w-full h-full"/>
+              <Image src={detailsOutput.image} className="w-full h-full" />
             </div>
             <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center">
-              <Image src={detailsOutput.image} className="w-full h-full"/>
+              <Image src={detailsOutput.image} className="w-full h-full" />
             </div>
             <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center">
-              <Image src={detailsOutput.image} className="w-full h-full"/>
+              <Image src={detailsOutput.image} className="w-full h-full" />
             </div>
           </div>
 
           <div className="w-6/12">
             <div className="w-125 h-150 bg-input rounded flex justify-center items-center">
-              <Image src={detailsOutput.image} className="bg-cover"/>
+              <Image src={detailsOutput.image} className="bg-cover" />
             </div>
           </div>
 
@@ -132,32 +146,39 @@ const ProductDetailsPage = () => {
             <Flex className="items-center gap-x-6 ">
               <p className="text-black text-xl font-normal font-inter">Size:</p>
               <Flex className="items-center gap-x-4 py-6 ">
-
                 {sizes.map((size) => (
-                  <div key={size} className="h-8 w-8 rounded border border-black/50 flex items-center justify-center">
+                  <div
+                    onClick={handleSize}
+                    key={size}
+                    className="h-8 w-8 rounded border border-black/50 flex items-center justify-center cursor-pointer"
+                  >
                     <p className="font-medium font-pop text-black text-sm ">
                       {size}
                     </p>
                   </div>
                 ))}
-
               </Flex>
             </Flex>
 
             <Flex className="items-center justify-between">
-              <div className="flex items-center border border-black/50 w-39.75 rounded">
-                <div className="flex justify-center items-center w-10 h-11 text-xl   cursor-pointer">
-                  -
-                </div>
 
-                <div className="flex justify-center items-center w-20 h-11 font-medium font-pop text-black text-xl border-x border-black/50 cursor-pointer">
-                  2
-                </div>
 
-                <div className="flex justify-center items-center w-10 h-11 text-xl  cursor-pointer">
-                  +
-                </div>
+              <div className="flex justify-evenly items-center border border-black/50 w-39.75 rounded">
+
+
+              <button onClick={handledeQuantity} className='w-1/3 text-2xl text-center border-r px-2 py-1.5 cursor-pointer'>-</button>
+
+
+              <button className='w-1/3 text-2xl text-center border-r px-2 py-1.5 cursor-pointer'>{count}</button>
+
+
+              <button onClick={handleInQuantity} className='w-1/3 text-2xl text-center  px-2 py-1.5 cursor-pointer'>+</button>
+
+
+
               </div>
+
+
 
               <div>
                 <Button className={`py-2.5!`} text="Buy Now" />
@@ -207,8 +228,8 @@ const ProductDetailsPage = () => {
               index > 15 &&
               index < 21 && (
                 <Card
-                key={index}
-                id={item.id}
+                  key={index}
+                  id={item.id}
                   image={item.image}
                   title={item.title}
                   regularPrice="160"

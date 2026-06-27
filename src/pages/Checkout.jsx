@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from '../components/Container'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import ListItem from '../components/ListItem'
 import Title from '../components/Title'
 import Flex from '../components/Flex'
@@ -22,6 +22,11 @@ const Checkout = () => {
     'Phone Number',
     'Email Address',
   ]
+
+    let params = useParams()
+    console.log(params)
+
+
 
   return (
     <section className="pb-35">
@@ -68,7 +73,7 @@ const Checkout = () => {
                   <Image src={Card1} className="w-13 h-13" />
                 </div>
                 <p className="text-base font-normal font-pop text-black">
-                  H1 Gamepad
+                 H1 Gamepad
                 </p>
               </div>
               <p className="text-base text-black font-pop font-normal">$650</p>

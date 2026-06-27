@@ -6,39 +6,42 @@ export const addToCartSlice = createSlice({
     value: [],
   },
   reducers: {
-    addtocart: (state,action) => {
+    addtocart: (state, action) => {
+      let item = state.value.find((item) => item.title == action.payload.title)
 
-
-
-      let item = state.value.find(item=>item.title==action.payload.title)
-
-      if(item){
-        item.quantity+=1
-      }else{
+      if (item) {
+        item.quantity += 1
+      } else {
         state.value.push(action.payload)
       }
-
-    //   let a= state.value.some(item=>item.title==action.payload.title)
-
-    //  if(a){
-    //   state.value=state.value.map(item=>{
-    //     if(item.title===action.payload.title){
-    //       return{...item,quantity:item.quantity+1}
-    //     }
-    //     return item
-    //   })
-    //  }else{
-    //   state.value.push(action.payload)
-    //  }
-
-
-
     },
+    increment: (state,action)=>{
+      console.log(state.value)
+      console.log(action.payload)
 
+      state.value.map((item)=>{
+        if(item.title==action.payload.title){
+          item.quantity+=1
+        }
+      })
+    },
+    decrement: (state,action)=>{
+      console.log(state.value)
+      console.log(action.payload)
+
+      state.value.map((item,index)=>{
+        if(item.title==action.payload.title){
+          item.quantity-=1
+          if(item.quantity<1){
+            state.value.splice(index,1)
+          }
+        }
+      })
+    },
 
   },
 })
 
-export const {addtocart} = addToCartSlice.actions
+export const { addtocart,increment,decrement } = addToCartSlice.actions
 
 export default addToCartSlice.reducer
