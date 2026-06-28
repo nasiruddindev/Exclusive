@@ -5,7 +5,7 @@ import { FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 
 const AboutCard = ({src,title,text}) => {
   return (
-    <div className='max-w-92.5'>
+    <div className='w-92.5'>
       <div className="w-full h-107.5 flex justify-center items-end bg-input">
         <Image src={src} className=""/>
       </div>

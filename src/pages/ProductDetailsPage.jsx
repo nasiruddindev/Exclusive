@@ -58,7 +58,7 @@ const ProductDetailsPage = () => {
   return (
     <section className="pb-35">
       <Container>
-        <ul className="flex gap-x-2 py-20">
+        <ul className="flex flex-wrap gap-2 py-20">
           <li className="text-sm font-pop font-normal text-black/50 hover:text-black duration-300 cursor-pointer">
             Account <p className="inline-block px-3">/</p>
           </li>
@@ -70,8 +70,10 @@ const ProductDetailsPage = () => {
           </li>
         </ul>
 
-        <Flex>
-          <div className="w-2/12 flex flex-col gap-y-4">
+        <Flex className="flex-col gap-y-10 lg:gap-y-0 lg:flex-row">
+
+
+          <div className="hidden lg:flex lg:w-2/12  flex-col gap-y-4">
             <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center">
               <Image src={detailsOutput.image} className="w-full h-full" />
             </div>
@@ -86,13 +88,30 @@ const ProductDetailsPage = () => {
             </div>
           </div>
 
-          <div className="w-6/12">
-            <div className="w-125 h-150 bg-input rounded flex justify-center items-center">
+          <div className="lg:w-6/12 mx-auto">
+            <div className="max-w-125 px-3 md:px-0 h-150 bg-input rounded flex justify-center items-center">
               <Image src={detailsOutput.image} className="bg-cover" />
             </div>
           </div>
 
-          <div className="w-4/12">
+           <div className="hidden md:flex lg:hidden justify-evenly">
+            <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center p-3">
+              <Image src={detailsOutput.image} className="w-full h-full" />
+            </div>
+            <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center p-3">
+              <Image src={detailsOutput.image} className="w-full h-full" />
+            </div>
+            <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center p-3">
+              <Image src={detailsOutput.image} className="w-full h-full" />
+            </div>
+            <div className="w-42.5 h-34.5 rounded bg-input flex justify-center items-center p-3">
+              <Image src={detailsOutput.image} className="w-full h-full" />
+            </div>
+          </div>
+
+
+
+          <div className="lg:w-4/12 sm:w-8/12 sm:mx-auto lg:mx-0 px-3 md:px-0">
             <h2 className="font-inter font-semibold text-2xl text-black">
               {detailsOutput.title}
             </h2>
@@ -124,7 +143,7 @@ const ProductDetailsPage = () => {
             <p className="text-black font-normal font-inter text-2xl">
               ${detailsOutput.price}
             </p>
-            <p className="font-pop font-normal text-sm text-black w-93.25 pt-6 border-b border-black/50 pb-6 mb-6">
+            <p className="font-pop font-normal text-sm text-black max-w-93.25 pt-6 border-b border-black/50 pb-6 mb-6">
               {detailsOutput.description}
             </p>
 
@@ -155,7 +174,7 @@ const ProductDetailsPage = () => {
               </Flex>
             </Flex>
 
-            <Flex className="items-center justify-between">
+            <Flex className="items-center gap-x-3 lg:gap-x-0 lg:justify-between">
 
 
               <div className="flex justify-evenly items-center border border-black/50 w-39.75 rounded">
@@ -184,7 +203,7 @@ const ProductDetailsPage = () => {
               </div>
             </Flex>
 
-            <div className="w-100 border border-black/50 rounded mt-10">
+            <div className="max-w-100 border border-black/50 rounded mt-10">
               <Flex className="items-center gap-x-4 border-b border-black/50 pb-4 pt-6 px-4">
                 <div>
                   <TbTruckDelivery className="text-4xl" />
@@ -213,11 +232,17 @@ const ProductDetailsPage = () => {
               </Flex>
             </div>
           </div>
+
+
+
+
+
+
         </Flex>
 
-        <SubTitle text="Related Item" className="pt-35 pb-15" />
+        <SubTitle text="Related Item" className="pt-20 md:pt-35 pb-15" />
 
-        <Flex className=" flex-wrap gap-x-7.5">
+        <Flex className=" flex-wrap justify-center gap-x-7.5">
           {allData.map(
             (item, index) =>
               index > 15 &&

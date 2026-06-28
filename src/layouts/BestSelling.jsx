@@ -45,7 +45,7 @@ const BestSelling = () => {
           ))}
         </Flex>
 
-        <div className="hidden md:block pb-17 pt-35">
+        <div className="hidden lg:block pb-17 pt-35">
           <div className=" bg-[url(assets/box.png)] bg-cover bg-center bg-no-repeat">
             <div className="pb-16 pt-95 pl-15">
               <Button text="Buy Now" className="" />

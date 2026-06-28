@@ -22,7 +22,7 @@ const NewArrival = () => {
             </div>
 
             <div>
-              <Grid className="grid-cols-2 gap-3 md:gap-7.5">
+              <Grid className="grid-cols-2 gap-3 sm:gap-5 md:gap-7.5">
                 <div className="col-span-2 max-w-142.5">
                   <Image src={ArrivalCard2} />
                 </div>

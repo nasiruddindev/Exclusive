@@ -13,7 +13,7 @@ const Banner = () => {
 
 
           <div className="md:w-3/12">
-            <ul className="flex flex-col  gap-y-4 px-10 md:border-r border-black/50 md:mr-13 pt-10 md:pr-4">
+            <ul className="flex flex-col  gap-y-4 px-10 md:border-r border-black/50 md:mr-6 lg:mr-13 md:pt-5 lg:pt-10 pt-10  md:px-4 lg:px-0 lg:pr-4">
               <BannerList text="Woman’s Fashion" type={true} />
 
               <BannerList text="Men’s Fashion" type={true} />

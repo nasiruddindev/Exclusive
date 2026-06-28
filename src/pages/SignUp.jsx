@@ -12,21 +12,27 @@ const SignUp = () => {
     <div>
       <section className='py-30'>
         <Container>
-          <Flex className="items-center">
-            <div className='w-8/12 pr-10'>
+
+
+          <Flex className="flex-col gap-y-15 md:gap-y-0 md:flex-row items-center">
+            <div className='md:w-8/12 p-2 md:p-0 md:pr-4 lg:pr-10'>
         <Image src={SignUpBanner}/>
 
             </div>
 
 
-            <div className='w-4/12'>
-            <h4 className='font-medium text-4xl text-black font-inter'>Create an account</h4>
+            <div className='sm:w-7/12 md:w-4/12 p-2 md:p-0'>
+            <h4 className='font-medium md:text-3xl lg:text-4xl text-black font-inter'>Create an account</h4>
             <p className='font-normal font-pop text-base text-black pt-6'>Enter your details below</p>
 
 
-            <Input type="text" placeholder="Name" className="w-full outline-none border-b border-[#00000066] mt-10"/>
-            <Input type="text" placeholder="Email or Phone Number" className="w-full outline-none border-b border-[#00000066] mt-10"/>
-            <Input type="password" placeholder="Password" className="w-full outline-none border-b border-[#00000066] mt-10"/>
+            <Input type="text" placeholder="Name" className="w-full outline-none border-b border-[#00000066] md:mt-4 lg:mt-10"/>
+
+
+            <Input type="text" placeholder="Email or Phone Number" className="w-full outline-none border-b border-[#00000066] md:mt-4 lg:mt-10"/>
+
+
+            <Input type="password" placeholder="Password" className="w-full outline-none border-b border-[#00000066] md:mt-4 lg:mt-10"/>
 
             <div className='mt-10 '>
               <Button text="Create Account" className="w-full"/>

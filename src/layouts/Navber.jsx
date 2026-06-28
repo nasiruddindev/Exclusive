@@ -132,13 +132,13 @@ const Navber = ({ id }) => {
   return (
     <nav className="py-5 border-b border-black">
       <Container>
-        <Flex className="hidden md:flex items-center">
-          <div className="w-3/12">
+        <Flex className="hidden md:flex items-center md:justify-between md:px-2 lg:px-0">
+          <div className="lg:w-3/12">
             <Image src={Logo} />
           </div>
 
           <div className="w-5/12">
-            <ul className="flex gap-x-12">
+            <ul className="flex md:gap-x-7 lg:gap-x-12">
               <Link to="/">
                 <ListItem text="Home " />
               </Link>
@@ -154,7 +154,7 @@ const Navber = ({ id }) => {
             </ul>
           </div>
 
-          <div className="relative w-4/12 flex  items-center gap-x-2 pl-20">
+          <div className="relative  lg:w-4/12 flex  items-center gap-x-2 lg:pl-10 xl:pl-20">
             <div
               ref={searchRef}
               className="relative flex items-center justify-between bg-input py-2 px-3 w-60"

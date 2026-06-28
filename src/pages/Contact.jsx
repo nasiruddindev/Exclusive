@@ -11,9 +11,9 @@ import Button from '../components/Button'
 const Contact = () => {
   return (
     <div>
-      <section className="py-30">
+      <section className="py-20 md:py-30">
         <Container>
-          <div>
+          <div className='pl-5 md:pl-0'>
             <ul className="flex gap-x-2">
               <Link to="/">
                 <ListItem text="Home" />
@@ -22,9 +22,11 @@ const Contact = () => {
               <ListItem text="Contact" />
             </ul>
           </div>
-          <Flex className="mt-20 items-center">
-            <div className="w-4/12  ">
-              <div className="w-[320px] shadow-2xl py-10 px-8">
+
+
+          <Flex className="mt-10 md:mt-20 flex-col md:flex-row gap-y-5 md:gap-y-0 items-center">
+            <div className="md:w-4/12">
+              <div className="max-w-[320px] shadow md:shadow-2xl py-10 lg:py-13 md:px-4 lg:px-8">
                 <div className="flex items-center gap-x-3">
                   <div className="bg-red-600 p-1 rounded-full">
                     <HiOutlinePhone className="text-white text-base" />
@@ -62,25 +64,27 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="w-8/12">
-              <div className="shadow-2xl px-8 py-10">
-                <div className='flex gap-x-4'>
+
+
+            <div className="md:w-8/12">
+              <div className="shadow-2xl px-4 xl:px-8 py-10">
+                <div className='flex flex-wrap  gap-y-5  gap-x-4'>
                   <Input
                   type="text"
                   placeholder="Your Name"
-                  className="w-56.75 bg-input outline-none rounded"
+                  className="max-w-56.75 bg-input outline-none rounded"
                 />
 
                 <Input
                   type="email"
                   placeholder="Your Email"
-                  className="w-56.75 bg-input outline-none rounded"
+                  className="max-w-56.75 bg-input outline-none rounded"
                 />
 
                 <Input
-                  type="number"
+                  type="text"
                   placeholder="Your Phone"
-                  className="w-56.75 bg-input outline-none rounded"
+                  className="max-w-56.75 bg-input outline-none rounded"
                 />
                 </div>
                 <textarea placeholder='Your Massage' className='bg-input mt-8 w-full h-45 rounded p-2'></textarea>

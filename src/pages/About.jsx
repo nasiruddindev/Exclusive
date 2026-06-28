@@ -24,9 +24,9 @@ const About = () => {
   return (
     <div>
 
-      <section className="py-35 relative overflow-hidden">
+      <section className="py-20 md:py-35 relative overflow-hidden">
         <Container>
-          <div>
+          <div className='pl-5 md:pl-0'>
             <ul className="flex gap-x-2">
               <Link to="/">
                 <ListItem text="Home" />
@@ -36,12 +36,14 @@ const About = () => {
             </ul>
           </div>
 
-          <Flex className="mt-10 mb-35 items-center">
-            <div className="w-6/12 pr-5">
-              <h2 className="font-inter font-semibold text-black text-[54px] pb-10">
+
+
+          <Flex className="flex-wrap mt-10 mb-35 items-center">
+            <div className="md:w-6/12 pr-5">
+              <h2 className="font-inter font-semibold text-black text-[54px] pb-10 text-center md:text-start">
                 Our Story
               </h2>
-              <p className="text-base font-pop font-normal text-black pb-6">
+              <p className="text-base font-pop font-normal text-black pb-6 text-center md:text-start px-3 md:px-0">
                 Launced in 2015, Exclusive is South Asia’s premier online
                 shopping makterplace with an active presense in Bangladesh.
                 Supported by wide range of tailored marketing, data and service
@@ -49,18 +51,22 @@ const About = () => {
                 serves 3 millioons customers across the region.{' '}
               </p>
 
-              <p className="text-base font-pop font-normal text-black">
+              <p className="text-base font-pop font-normal text-black text-center md:text-start px-3 md:px-0">
                 Exclusive has more than 1 Million products to offer, growing at
                 a very fast. Exclusive offers a diverse assotment in categories
                 ranging from consumer.
               </p>
             </div>
-            <div className="w-6/12">
+            <div className="md:w-6/12 hidden md:block">
               <Image src={AboutBanner} className="absolute top-1/6 -translate-y-1/2 right-0 w-[calc(50%-58px)]"/>
             </div>
           </Flex>
 
-          <Grid className="grid-cols-4 gap-x-7.5">
+
+
+
+
+          <Flex className="flex-wrap justify-center gap-7.5">
             <AboutCounter
               src={<IoStorefrontOutline />}
               title="10.5k"
@@ -84,9 +90,9 @@ const About = () => {
               title="10.5k"
               text="Annual gross sale in our site"
             />
-          </Grid>
+          </Flex>
 
-          <Grid className="grid-cols-3 mt-35 mb-10 gap-x-7.5">
+          <Flex className="flex-wrap justify-center md:justify-between mt-35 mb-10 gap-x-7.5">
             <AboutCard
               src={AboutCard1}
               title="Tom cruise"
@@ -102,7 +108,7 @@ const About = () => {
               title="Will Smith"
               text="Product Designer"
             />
-          </Grid>
+          </Flex>
 
           <div className="flex justify-center mb-35 gap-x-2">
             <TbCircleDotFilled className="text-[#D9D9D9] hover:text-secondary duration-500 hover:scale-150 cursor-pointer" />
