@@ -9,8 +9,8 @@ const AboutCard = ({src,title,text}) => {
       <div className="w-full h-107.5 flex justify-center items-end bg-input">
         <Image src={src} className=""/>
       </div>
-      <h3 className='text-[32px] font-medium font-inter text-black pt-8'>{title}</h3>
-      <p className='text-base font-normal font-pop text-black pt-2 pb-4'>{text}</p>
+      <h3 className='text-[32px] font-medium font-inter text-black pt-4 md:pt-8'>{title}</h3>
+      <p className='text-base font-normal font-pop text-black md:pt-2 pb-4'>{text}</p>
       <div className='flex gap-x-5'>
         <CiTwitter className='text-2xl'/>
         <FaInstagram className='text-2xl'/>

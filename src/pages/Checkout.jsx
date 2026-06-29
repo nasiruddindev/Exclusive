@@ -32,7 +32,7 @@ const Checkout = () => {
     <section className="pb-35">
       <Container>
         <div className="py-20">
-          <ul className="flex gap-x-2">
+          <ul className="flex flex-wrap gap-2">
             <Link to="/">
               <ListItem text="Account" />
             </Link>
@@ -54,19 +54,20 @@ const Checkout = () => {
         </div>
         <Title text="Billing Details" className={`font-medium! pb-12`} />
 
-        <Flex>
-          <div className="w-1/2 flex flex-col">
+        <Flex className="flex-col md:flex-row">
+
+          <div className="md:w-1/2 flex flex-col">
             {billingFields.map((field, index) => (
-              <div key={index}>
+              <div key={index} className="mx-auto md:mx-0">
                 <label className="font-pop font-normal text-base text-black/40 pb-2 block">
                   {field}
                 </label>
-                <Input className="bg-input w-4/5 mb-8" />
+                <Input className="bg-input  md:w-4/5  mb-8" />
               </div>
             ))}
           </div>
 
-          <div className="w-1/2">
+          <div className="md:w-1/2 p-3 lg:p-0">
             <div className="flex items-center justify-between ">
               <div className="flex gap-x-4 items-center">
                 <div>
@@ -130,14 +131,14 @@ const Checkout = () => {
               <Input type="radio" />
               <label htmlFor="">Cash On Delevery</label>
             </div>
-            <div className="flex gap-x-4 py-8">
+            <div className="flex gap-4 py-8">
               <Input
                 placeholder="Coupon Code"
-                className="border border-black/50 rounded"
+                className="border border-black/50 rounded w-1/2 lg:w-full"
               />
-              <Button text="Apply Coupon" />
+              <Button text="Apply Coupon" className="w-1/2 lg:w-full"/>
             </div>
-            <Button text="Place Order" />
+              <Button text="Place Order" className="w-full"/>
           </div>
         </Flex>
       </Container>

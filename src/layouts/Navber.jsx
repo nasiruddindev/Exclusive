@@ -86,7 +86,7 @@ const Navber = ({ id }) => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (searchRef.current && !searchRef.current.contains(event.target)) {
+      if (searchResRef.current && !searchResRef.current.contains(event.target)) {
         setShowResSearch(false)
       }
     }
@@ -133,8 +133,10 @@ const Navber = ({ id }) => {
     <nav className="py-5 border-b border-black">
       <Container>
         <Flex className="hidden md:flex items-center md:justify-between md:px-2 lg:px-0">
-          <div className="lg:w-3/12">
+          <div className="lg:w-3/12 cursor-pointer">
+            <Link to="/">
             <Image src={Logo} />
+            </Link>
           </div>
 
           <div className="w-5/12">
@@ -269,8 +271,10 @@ const Navber = ({ id }) => {
 
         <div className="md:hidden">
           <Flex className="px-3 pb-3 justify-between items-center">
-            <div>
+            <div className='cursor-pointer'>
+              <Link to="/">
               <Image src={Logo} />
+              </Link>
             </div>
 
 
@@ -318,7 +322,7 @@ const Navber = ({ id }) => {
                 placeholder="What are you looking for"
                 className="placeholder:text-xs placeholder:text-[#00000080] outline-none"
               />
-              {search.length > 0 && input.length > 0 && showSearch && (
+              {search.length > 0 && input.length > 0 && showResSearch && (
                 <div className="absolute top-14 left-0 w-full  bg-linear-to-r from-black/70 to-black rounded p-5 z-10">
                   {search.map((item, index) => (
                     <ul>

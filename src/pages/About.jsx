@@ -38,7 +38,7 @@ const About = () => {
 
 
 
-          <Flex className="flex-wrap mt-10 mb-35 items-center">
+          <Flex className="flex-wrap mt-10 mb-20 md:mb-35 items-center">
             <div className="md:w-6/12 pr-5">
               <h2 className="font-inter font-semibold text-black text-[54px] pb-10 text-center md:text-start">
                 Our Story
@@ -92,7 +92,7 @@ const About = () => {
             />
           </Flex>
 
-          <Flex className="flex-wrap justify-center md:justify-between mt-35 mb-10 gap-x-7.5">
+          <Flex className="flex-wrap justify-center  mt-35 mb-10 gap-7.5">
             <AboutCard
               src={AboutCard1}
               title="Tom cruise"
