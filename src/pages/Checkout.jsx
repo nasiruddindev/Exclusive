@@ -11,8 +11,15 @@ import Card2 from '../assets/card3.png'
 import Bkash from '../assets/bkash.png'
 import Nagad from '../assets/nagad.png'
 import Button from '../components/Button'
+import { useSelector } from 'react-redux'
 
 const Checkout = () => {
+
+
+  let [subTotal,setSubTotal] = useState("")
+
+
+
   const billingFields = [
     'First Name',
     'Company Name',
@@ -23,9 +30,16 @@ const Checkout = () => {
     'Email Address',
   ]
 
-    let params = useParams()
-    console.log(params)
+  let data = useSelector((state)=>state.cart.value)
 
+
+  useEffect(()=>{
+    let subTotal = 0
+    data.map((item)=>{
+      subTotal+=item.quantity+item.price
+    })
+    setSubTotal(subTotal)
+  },[])
 
 
   return (
@@ -68,36 +82,30 @@ const Checkout = () => {
           </div>
 
           <div className="md:w-1/2 p-3 lg:p-0">
-            <div className="flex items-center justify-between ">
+
+           {
+            data.map(item=>(
+                <div className="flex items-center justify-between mb-5">
               <div className="flex gap-x-4 items-center">
                 <div>
-                  <Image src={Card1} className="w-13 h-13" />
+                  <Image src={item.src} className="w-13 h-13" />
                 </div>
                 <p className="text-base font-normal font-pop text-black">
-                 H1 Gamepad
+                 {item.title}
                 </p>
               </div>
-              <p className="text-base text-black font-pop font-normal">$650</p>
+              <p className="text-base text-black font-pop font-normal">{item.price}</p>
             </div>
 
-            <div className="flex items-center justify-between py-8">
-              <div className="flex gap-x-4 items-center">
-                <div>
-                  <Image src={Card2} className="w-13 h-13" />
-                </div>
-                <p className="text-base font-normal font-pop text-black">
-                  LCD Monitor
-                </p>
-              </div>
-              <p className="text-base text-black font-pop font-normal">$1100</p>
-            </div>
+            ))
+           }
 
             <div className="flex items-center justify-between border-b border-black/40 pb-4">
               <p className="text-base font-normal font-pop text-black">
                 Subtotal
               </p>
 
-              <p className="text-base text-black font-pop font-normal">$1750</p>
+              <p className="text-base text-black font-pop font-normal">{subTotal}</p>
             </div>
 
             <div className="flex items-center justify-between border-b border-black/40 py-4">
@@ -105,7 +113,10 @@ const Checkout = () => {
                 Shipping
               </p>
 
-              <p className="text-base text-black font-pop font-normal">Free</p>
+              {
+                data.length < 1 ? 0 : <p className="text-base text-black font-pop font-normal">5$</p>
+
+              }
             </div>
 
             <div className="flex items-center justify-between  pt-4">
@@ -113,7 +124,9 @@ const Checkout = () => {
                 Total:
               </p>
 
-              <p className="text-base text-black font-pop font-normal">$1750</p>
+              {
+                data.length < 1 ? 0 : <p className="text-base text-black font-pop font-normal">{subTotal+5}</p>
+              }
             </div>
 
             <div className="flex justify-between pt-8">

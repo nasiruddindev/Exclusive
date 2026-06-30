@@ -402,9 +402,12 @@ const Navber = ({ id }) => {
                         Total : {Math.floor(total)}$
                       </p>
                       <div>
-                        <div>
+                        <div className='flex  gap-4 mt-5'>
                           <Link to="/checkout">
-                            <Button className="w-full mt-5" text="Check Out" />
+                            <Button text="Check Out" />
+                          </Link>
+                          <Link to="/cart">
+                            <Button text="Cart" />
                           </Link>
                         </div>
                       </div>
