@@ -98,40 +98,13 @@ const Navber = ({ id }) => {
     }
   }, [])
 
-  // Search Box hide with outside click function end
 
-  // Cart box hide with outside click function start
-  //   const [cartOpen, setCartOpen] = useState(false);
-  //   const cartRef = useRef(null);
-
-  //   useEffect(() => {
-  //   const handleClickOutside = (e) => {
-  //     if (
-  //       searchRef.current &&
-  //       !searchRef.current.contains(e.target)
-  //     ) {
-  //       setOpen(false);
-  //     }
-
-  //     if (
-  //       cartRef.current &&
-  //       !cartRef.current.contains(e.target)
-  //     ) {
-  //       setCartOpen(false);
-  //     }
-  //   };
-
-  //   document.addEventListener("mousedown", handleClickOutside);
-
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, []);
-  // Cart box hide with outside click function end
 
   return (
     <nav className="py-5 border-b border-black">
       <Container>
+
+
         <Flex className="hidden md:flex items-center md:justify-between md:px-2 lg:px-0">
           <div className="lg:w-3/12 cursor-pointer">
             <Link to="/">
@@ -248,13 +221,16 @@ const Navber = ({ id }) => {
                       <p className="text-2xl px-2 font-inter font-medium text-end ">
                         Total : {Math.floor(total)}$
                       </p>
-                      <div>
-                        <div>
-                          <Link to="/checkout">
+
+                        <div className='flex justify-evenly gap-2'>
+                          <Link to="/checkout" onClick={()=>setOpen(!open)}>
                             <Button className="w-full mt-5" text="Check Out" />
                           </Link>
+                          <Link to="/cart" onClick={()=>setOpen(!open)}>
+                            <Button className="w-full mt-5" text="Cart" />
+                          </Link>
                         </div>
-                      </div>
+
                     </div>
                   ) : (
                     <p className="text-3xl font-inter text-black/70 font-semibold text-center py-5 ">
@@ -266,6 +242,17 @@ const Navber = ({ id }) => {
             </div>
           </div>
         </Flex>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -401,16 +388,16 @@ const Navber = ({ id }) => {
                       <p className="text-2xl px-2 font-inter font-medium text-end ">
                         Total : {Math.floor(total)}$
                       </p>
-                      <div>
-                        <div className='flex  gap-4 mt-5'>
-                          <Link to="/checkout">
-                            <Button text="Check Out" />
+
+                        <div className='flex justify-evenly gap-2'>
+                          <Link to="/checkout" onClick={()=>setOpen(!open)}>
+                            <Button className="w-full mt-5" text="Check Out" />
                           </Link>
-                          <Link to="/cart">
-                            <Button text="Cart" />
+                          <Link to="/cart" onClick={()=>setOpen(!open)}>
+                            <Button className="w-full mt-5" text="Cart" />
                           </Link>
                         </div>
-                      </div>
+
                     </div>
                   ) : (
                     <p className="text-3xl font-inter text-black/70 font-semibold text-center py-5 ">
