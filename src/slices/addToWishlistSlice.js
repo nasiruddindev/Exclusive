@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { GiCardKingClubs } from 'react-icons/gi'
 
 export const addToWishlistSlice = createSlice({
-  name: 'counter',
+  name: 'wishlist',
   initialState: {
     value: sessionStorage.getItem("wishlist")?JSON.parse(sessionStorage.getItem("wishlist")):[] ,
   },

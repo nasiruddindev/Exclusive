@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { decrement, increment } from '../slices/addToCartSlice'
 import { IoMdMenu } from 'react-icons/io'
 import { RxCross2 } from 'react-icons/rx'
+import { breadcrumb } from '../slices/breadcrumbSlice'
 
 const Navber = ({ id }) => {
   let [allData, setAllData] = useState([])
@@ -21,6 +22,7 @@ const Navber = ({ id }) => {
   let [open, setOpen] = useState(false)
   let [menuOpen, setMenuOpen] = useState(false)
   let [total, setTotal] = useState('')
+   let dispatch = useDispatch()
 
   // Api Data fetch start
   useEffect(() => {
@@ -52,7 +54,7 @@ const Navber = ({ id }) => {
   }, [data])
   // All Product Pricing end
 
-  let dispatch = useDispatch()
+
 
   let handelIncrement = (item) => {
     dispatch(increment(item))
@@ -101,6 +103,11 @@ const Navber = ({ id }) => {
   let wishlistData = useSelector((state) => state.wishlist.value)
 
 
+  let breadcrumbItem = (text) => {
+    dispatch(breadcrumb(text))
+  }
+
+
 
   return (
     <nav className="py-5 border-b border-black">
@@ -116,18 +123,15 @@ const Navber = ({ id }) => {
 
           <div className="w-5/12">
             <ul className="flex md:gap-x-7 lg:gap-x-12">
-              <Link to="/">
-                <ListItem text="Home " />
-              </Link>
-              <Link to="/contact">
-                <ListItem text="Contact" />
-              </Link>
-              <Link to="/about">
-                <ListItem text="About " />
-              </Link>
-              <Link to="/signup">
-                <ListItem text="Sign Up " />
-              </Link>
+
+
+              <Link onClick={()=>breadcrumbItem("home")} to="/"> <ListItem text="Home " /></Link>
+              <Link onClick={()=>breadcrumbItem("contact")} to="/contact"><ListItem text="Contact" /></Link>
+              <Link onClick={()=>breadcrumbItem("about")} to="/about"><ListItem text="About " /></Link>
+              <Link onClick={()=>breadcrumbItem("signup")} to="/signup"><ListItem text="Sign Up " /></Link>
+
+
+
             </ul>
           </div>
 
@@ -350,12 +354,28 @@ const Navber = ({ id }) => {
               <IoSearch className="text-base" />
             </div>
             <div className="flex items-center gap-x-3">
-              <FaRegHeart className="text-xl" />
+              <Link to="/wishlist">
+              <div className='relative'>
+                <FaRegHeart className="text-xl cursor-pointer" />
+                {
+                  wishlistData.length > 0 &&
+                  <div className='absolute -top-2 -right-2 w-4 h-4 bg-amber-300 rounded-full flex justify-center items-center text-xs'>{wishlistData.length}</div>
+                }
+              </div>
+              </Link>
 
-              <BsCart3
+              <div className='relative'>
+                <BsCart3
                 onClick={() => setOpen(!open)}
                 className="text-xl cursor-pointer"
               />
+              {
+                data.length > 0 &&
+                <div className='absolute -top-2 -right-2 w-4 h-4 bg-amber-300 rounded-full flex justify-center items-center text-xs'>{data.length}</div>
+              }
+
+
+              </div>
 
               {open && (
                 <div className="overflow-y-scroll z-50 absolute top-14 right-0 h-screen w-full bg-input px-4 py-6">

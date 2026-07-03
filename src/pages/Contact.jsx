@@ -7,22 +7,34 @@ import { MdOutlineEmail } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import Input from '../components/Input'
 import Button from '../components/Button'
+import { useSelector } from 'react-redux'
 
 const Contact = () => {
+  let data = useSelector((state) => state.breadcrumb.previousvalue)
+  let data2 = useSelector((state) => state.breadcrumb.secPreviousvalue)
   return (
     <div>
       <section className="py-20 md:py-30">
         <Container>
-          <div className='pl-5 md:pl-0'>
+          <div className="pl-5 md:pl-0">
             <ul className="flex gap-x-2">
-              <Link to="/">
-                <ListItem text="Home" />
+
+
+
+              <Link to={`${data2 === 'home' ? '/' : `/${data2}`}`}>
+                <ListItem text={data2} />
               </Link>
               /
+              <Link to={`${data === 'home' ? '/' : `/${data}`}`}>
+                <ListItem text={data} />
+              </Link>{' '}
+              /
               <ListItem text="Contact" />
+
+
+              
             </ul>
           </div>
-
 
           <Flex className="mt-10 md:mt-20 flex-col md:flex-row gap-y-5 md:gap-y-0 items-center">
             <div className="md:w-4/12">
@@ -64,32 +76,33 @@ const Contact = () => {
               </div>
             </div>
 
-
-
             <div className="md:w-8/12">
               <div className="shadow-2xl px-4 xl:px-8 py-10">
-                <div className='flex flex-wrap  gap-y-5  gap-x-4'>
+                <div className="flex flex-wrap  gap-y-5  gap-x-4">
                   <Input
-                  type="text"
-                  placeholder="Your Name"
-                  className="max-w-56.75 bg-input outline-none rounded"
-                />
+                    type="text"
+                    placeholder="Your Name"
+                    className="max-w-56.75 bg-input outline-none rounded"
+                  />
 
-                <Input
-                  type="email"
-                  placeholder="Your Email"
-                  className="max-w-56.75 bg-input outline-none rounded"
-                />
+                  <Input
+                    type="email"
+                    placeholder="Your Email"
+                    className="max-w-56.75 bg-input outline-none rounded"
+                  />
 
-                <Input
-                  type="text"
-                  placeholder="Your Phone"
-                  className="max-w-56.75 bg-input outline-none rounded"
-                />
+                  <Input
+                    type="text"
+                    placeholder="Your Phone"
+                    className="max-w-56.75 bg-input outline-none rounded"
+                  />
                 </div>
-                <textarea placeholder='Your Massage' className='bg-input mt-8 w-full h-45 rounded p-2'></textarea>
-                <div className='text-end mt-8'>
-                  <Button text="Send Massage"/>
+                <textarea
+                  placeholder="Your Massage"
+                  className="bg-input mt-8 w-full h-45 rounded p-2"
+                ></textarea>
+                <div className="text-end mt-8">
+                  <Button text="Send Massage" />
                 </div>
               </div>
             </div>

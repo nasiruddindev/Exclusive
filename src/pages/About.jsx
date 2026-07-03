@@ -19,24 +19,35 @@ import { TbCircleDotFilled, TbTruckDelivery } from 'react-icons/tb'
 import { LuHeadset } from 'react-icons/lu'
 import { CiBookmarkCheck } from 'react-icons/ci'
 import CustomerService from '../components/CustomerService'
+import { useSelector } from 'react-redux'
 
 const About = () => {
+
+  let data = useSelector((state) => state.breadcrumb.previousvalue)
+  let data2 = useSelector((state) => state.breadcrumb.secPreviousvalue)
+
+
   return (
     <div>
-
       <section className="py-20 md:py-35 relative overflow-hidden">
         <Container>
-          <div className='pl-5 md:pl-0'>
+          <div className="pl-5 md:pl-0">
             <ul className="flex gap-x-2">
-              <Link to="/">
-                <ListItem text="Home" />
+
+
+              <Link to={`${data2 === 'home' ? '/' : `/${data2}`}`}>
+                <ListItem text={data2} />
+              </Link>
+              /
+              <Link to={`${data === 'home' ? '/' : `/${data}`}`}>
+                <ListItem text={data} />
               </Link>
               /
               <ListItem text="About" />
+
+
             </ul>
           </div>
-
-
 
           <Flex className="flex-wrap mt-10 mb-20 md:mb-35 items-center">
             <div className="md:w-6/12 pr-5">
@@ -48,7 +59,7 @@ const About = () => {
                 shopping makterplace with an active presense in Bangladesh.
                 Supported by wide range of tailored marketing, data and service
                 solutions, Exclusive has 10,500 sallers and 300 brands and
-                serves 3 millioons customers across the region.{' '}
+                serves 3 millioons customers across the region.
               </p>
 
               <p className="text-base font-pop font-normal text-black text-center md:text-start px-3 md:px-0">
@@ -58,13 +69,12 @@ const About = () => {
               </p>
             </div>
             <div className="md:w-6/12 hidden md:block">
-              <Image src={AboutBanner} className="absolute top-1/6 -translate-y-1/2 right-0 w-[calc(50%-58px)]"/>
+              <Image
+                src={AboutBanner}
+                className="absolute top-1/6 -translate-y-1/2 right-0 w-[calc(50%-58px)]"
+              />
             </div>
           </Flex>
-
-
-
-
 
           <Flex className="flex-wrap justify-center gap-7.5">
             <AboutCounter
@@ -119,11 +129,23 @@ const About = () => {
           </div>
 
           <Grid className="grid-cols-3 gap-x-7.5">
-            <CustomerService icon={<TbTruckDelivery />} title="FREE AND FAST DELIVERY" text="Free delivery for all orders over $140"/>
+            <CustomerService
+              icon={<TbTruckDelivery />}
+              title="FREE AND FAST DELIVERY"
+              text="Free delivery for all orders over $140"
+            />
 
-           <CustomerService icon={<LuHeadset />} title="24/7 CUSTOMER SERVICE" text="Friendly 24/7 customer support"/>
+            <CustomerService
+              icon={<LuHeadset />}
+              title="24/7 CUSTOMER SERVICE"
+              text="Friendly 24/7 customer support"
+            />
 
-           <CustomerService icon={<CiBookmarkCheck />} title="MONEY BACK GUARANTEE" text="We reurn money within 30 days"/>
+            <CustomerService
+              icon={<CiBookmarkCheck />}
+              title="MONEY BACK GUARANTEE"
+              text="We reurn money within 30 days"
+            />
           </Grid>
         </Container>
       </section>
