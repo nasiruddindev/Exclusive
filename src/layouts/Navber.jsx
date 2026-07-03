@@ -98,6 +98,8 @@ const Navber = ({ id }) => {
     }
   }, [])
 
+  let wishlistData = useSelector((state) => state.wishlist.value)
+
 
 
   return (
@@ -165,15 +167,35 @@ const Navber = ({ id }) => {
               <IoSearch className="text-base" />
             </div>
             <div className="flex items-center gap-x-3">
-              <FaRegHeart className="text-xl" />
+              <Link to="/wishlist">
+              <div className='relative'>
+                <FaRegHeart className="text-xl cursor-pointer" />
+                {
+                  wishlistData.length > 0 &&
+                  <div className='absolute -top-2 -right-2 w-4 h-4 bg-amber-300 rounded-full flex justify-center items-center text-xs'>{wishlistData.length}</div>
+                }
+              </div>
+              </Link>
 
-              <BsCart3
+              <div className='relative'>
+                <BsCart3
                 onClick={() => setOpen(!open)}
                 className="text-xl cursor-pointer"
               />
+              {
+                data.length > 0 &&
+                <div className='absolute -top-2 -right-2 w-4 h-4 bg-amber-300 rounded-full flex justify-center items-center text-xs'>{data.length}</div>
+              }
+
+
+              </div>
 
               {open && (
                 <div className="overflow-y-scroll z-50 absolute top-14 right-0 h-screen w-full bg-input px-4 py-6">
+                  <div className='pb-5 cursor-pointer' onClick={()=>setOpen(!open)}>
+                    <RxCross2  className='text-3xl text-black'/>
+                  </div>
+
                   <ul className="flex  border-b pb-4 ">
                     <li className="w-1/5 text-center">Product</li>
                     <li className="w-1/5 text-center">Image</li>
@@ -189,8 +211,8 @@ const Navber = ({ id }) => {
                       </li>
 
                       <li className="w-1/5">
-                        {' '}
-                        <Image className="w-full" image={item.src} />{' '}
+
+                        <Image className="w-full" image={item.src} />
                       </li>
                       <li className="w-1/5 h-10 text-center border border-black/40 flex justify-between px-2 rounded-md">
                         <button
@@ -242,10 +264,6 @@ const Navber = ({ id }) => {
             </div>
           </div>
         </Flex>
-
-
-
-
 
 
 
@@ -341,6 +359,9 @@ const Navber = ({ id }) => {
 
               {open && (
                 <div className="overflow-y-scroll z-50 absolute top-14 right-0 h-screen w-full bg-input px-4 py-6">
+                  <div className='pb-5 cursor-pointer' onClick={()=>setOpen(!open)}>
+                    <RxCross2  className='text-3xl text-black'/>
+                  </div>
                   <ul className="flex  border-b pb-4 ">
                     <li className="w-1/5 text-center">Product</li>
                     <li className="w-1/5 text-center">Image</li>
