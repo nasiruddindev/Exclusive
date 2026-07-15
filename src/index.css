@@ -11,6 +11,10 @@
 }
 
 
-ome{
-  color: #00000033;
+/* Input focus border utility */
+.input-focus-border {
+  transition: border-color 0.3s ease;
+}
+.input-focus-border:focus-within {
+  border-color: var(--color-secondary);
 }

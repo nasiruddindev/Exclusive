@@ -6,37 +6,49 @@ import Button from '../components/Button'
 import { FcGoogle } from 'react-icons/fc'
 import Image from '../components/Image'
 import SignUpBanner from '../assets/signupbanner.png'
- import { ToastContainer, toast } from 'react-toastify';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { ToastContainer, toast } from 'react-toastify'
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
+import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5'
 
 const SignUp = () => {
+  const [showPasswordIcon, setShowPasswordIcon] = useState(false)
+  const [showPassword,setShowPassword] = useState("password")
+
+  const auth = getAuth()
+  const navigate = useNavigate()
+
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.#^()_\-+=])[A-Za-z\d@$!%*?&.#^()_\-+=]{8,}$/
 
-  let [name, setName] = useState()
-  let [email, setEmail] = useState()
-  let [password, setPassword] = useState()
-  let [nameError, setNameError] = useState()
-  let [emailError, setEmailError] = useState()
-  let [passwordError, setPasswordError] = useState()
+  const [name, setName] = useState()
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+  const [nameError, setNameError] = useState()
+  const [emailError, setEmailError] = useState()
+  const [passwordError, setPasswordError] = useState()
 
-  let handleName = (e) => {
+  const handleName = (e) => {
     setName(e.target.value)
     setNameError('')
   }
 
-  let handleEmail = (e) => {
+  const handleEmail = (e) => {
     setEmail(e.target.value)
     setEmailError('')
   }
 
-  let handlePassword = (e) => {
+  const handlePassword = (e) => {
     setPassword(e.target.value)
     setPasswordError('')
   }
 
-  let handleCreateAccount = () => {
+  const handleCreateAccount = () => {
     if (!name) {
       setNameError('Enter Your Name')
     }
@@ -60,16 +72,25 @@ const SignUp = () => {
       emailRegex.test(email) &&
       passwordRegex.test(password)
     ) {
-      const auth = getAuth()
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          toast.success("Registration Successfull")
+          sendEmailVerification(auth.currentUser)
+          toast.success('Verify Your Email')
+          setTimeout(() => {
+            navigate('/login')
+          }, 1000)
         })
         .catch((error) => {
           const errorCode = error.code
           const errorMessage = error.message
         })
     }
+  }
+
+
+  const handleShowPassword = () => {
+    setShowPasswordIcon(!showPasswordIcon)
+    setShowPassword(showPassword==="password"?"text":"password")
   }
 
   return (
@@ -106,12 +127,21 @@ const SignUp = () => {
               />
               <p className="text-xl pt-1 text-red-500">{emailError}</p>
 
-              <Input
+              <div className='relative'>
+                <Input
                 onChange={handlePassword}
-                type="text"
+                type={showPassword}
                 placeholder="Password"
                 className="w-full outline-none border-b border-[#00000066] md:mt-4 lg:mt-10"
               />
+              <div onClick={handleShowPassword} className='cursor-pointer absolute top-[60%] right-0'>
+                {
+                  showPasswordIcon?<IoEyeOutline className='text-2xl'/>:<IoEyeOffOutline className="text-2xl"  />
+                }
+
+
+              </div>
+              </div>
               <p className="text-xl pt-1 text-red-500">{passwordError}</p>
 
               <div className="mt-10 ">
